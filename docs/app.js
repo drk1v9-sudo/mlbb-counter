@@ -66,7 +66,7 @@ const HERO_ROLES = {
   hayabusa:["jungle","exp","physical","high","low","low","low"],
   lancelot:["jungle","exp","physical","very_high","low","low","low"],
   gusion:["jungle","mid","magic","high","low","low","low"],
-  fed:["jungle","exp","physical","medium","low","low","low"],
+
   martis:["jungle","exp","physical","high","high","medium","medium"],
   roger:["jungle","gold","physical","high","low","medium","low"],
   yin:["jungle","exp","physical","high","high","medium","medium"],
@@ -83,7 +83,7 @@ const HERO_ROLES = {
   valentina:["mid","exp","magic","high","low","low","low"],
   kagura:["mid","exp","magic","high","medium","low","low"],
   lylia:["mid","exp","magic","high","low","high","low"],
-  chang:["mid","gold","magic","high","low","low","low"],
+  chang_e:["mid","gold","magic","high","low","low","low"],
   eudora:["mid","roam","magic","low","very_high","low","low"],
   aurora:["mid","roam","magic","low","very_high","low","low"],
   kadita:["mid","exp","magic","medium","high","low","low"],
@@ -138,7 +138,7 @@ const HEALERS=new Set(["estes","rafaela","angela","floryn"]);
 const TRUE_DMG=new Set(["karrie","lunox","dyrroth","alpha"]);
 const SUSTAIN_TANKS=new Set(["uranus","esmeralda","hylos","belerick","barats","grock","terizla","thamuz","gloo","gatotkaca","minotaur","khaleed","leomord","phoveus"]);
 const POKE_MAGES=new Set(["yve","pharsa","novaria","xavier","cecilion","gord","zhask","luo_yi"]);
-const DIVE_ASSASSINS=new Set(["fanny","ling","hayabusa","lancelot","benedetta","gusion","fed","yin","helcurt","aamon","karina","nolan","suyou"]);
+const DIVE_ASSASSINS=new Set(["fanny","ling","hayabusa","lancelot","benedetta","gusion","yin","helcurt","aamon","karina","nolan","suyou"]);
 const BURST_MAGES=new Set(["eudora","aurora","kadita","selena","saber","harley","odette","vexana","vale","zhuxin"]);
 const SETUP_MAGES=new Set(["atlas","tigreal","kaja","carmilla","khufra"]);
 const PURIFY_COUNTERS=new Set(["atlas","tigreal","kaja","khufra","chou"]);
@@ -149,7 +149,7 @@ Object.keys(HERO_ROLES).forEach(k => ALIASES[k] = k);
 Object.assign(ALIASES, {
   esme:"esmeralda",yuzhong:"yu_zhong",urasmus:"uranus",
   bene:"benedetta",haya:"hayabusa",lance:"lancelot",
-  bea:"beatrix",nova:"novaria",change:"chang",min:"minsitthar",
+  bea:"beatrix",nova:"novaria",change:"chang_e",min:"minsitthar",
   john:"johnson",jonson:"johnson",kupa:"popol",xborg:"x_borg",
   lapu:"lapu_lapu",ceci:"cecilion",luoyi:"luo_yi",
   fred:"fredrinn",gloom:"gloo",flo:"floryn",
@@ -299,7 +299,6 @@ const COUNTER_KNOWLEDGE = {
   chou:["Minsitthar stops escape. Diggie ult negates CC. Ruby out-sustains.","minsitthar","diggie","ruby"],
   esmeralda:["True damage > shield. Baxia reduces shield gain.","dyrroth","cici","karrie"],
   uranus:["True damage melts HP. Baxia anti-heal.","thamuz","dyrroth","karrie"],
-  fed:["Valir pushes away from camps. Lylia survives fury.","valir","lylia","lancelot"],
   atlas:["DIGGIE = hard counter. His ult = useless. Valir pushes mid-ult.","diggie","valir","franco"],
   tigreal:["Same as Atlas. Diggie best counter.","diggie","valir","nana"],
   estes:["Baxia reduces heal. True damage ignores heal. Burst him.","baxia","lunox","kadita"],
@@ -429,7 +428,6 @@ function suggestRoles(heroes, a) {
   const enemyRoam = heroes.filter(h=>getInfo(h)[0]==="roam");
   for (const j of enemyJung) {
     if (DIVE_ASSASSINS.has(j)) { mid=[["Saber (mid)","Point-click ult stops combo."],["Nana","Molina blocks dashes."],["Aurora","Freeze mid-dive."]]; break; }
-    if (j==="fed") { mid=[["Valir","Push away from camps."],["Lylia","Survives fury."]]; break; }
   }
   for (const r of enemyRoam) {
     if (["atlas","tigreal"].includes(r)) { mid=[["Diggie (mid)","Hard counter."],["Valir","Push mid-ult."],["Kagura","S2 dodges setup."]]; break; }
@@ -466,7 +464,7 @@ function generatePlaystyle(heroes, picks, a) {
     (picks[role]||[]).forEach(p => ourPicks.push(p[0].toLowerCase().replace(/ \(.*\)/g,"")));
   });
 
-  const earlyHeroes = new Set(["fed","martis","hilda","valir","khaleed","paquito","dyrroth","roger","arlott","badang","aulus"]);
+  const earlyHeroes = new Set(["martis","hilda","valir","khaleed","paquito","dyrroth","roger","arlott","badang","aulus"]);
   const ourEarly = ourPicks.filter(h=>earlyHeroes.has(h));
   const enemyEarly = heroes.filter(h=>earlyHeroes.has(h));
 

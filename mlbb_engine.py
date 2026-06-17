@@ -23,8 +23,6 @@ HERO_ROLES = {
     "angela":     ("roam", "mid", "magic", "high", "low", "low", "low"),
     "mathilda":   ("roam", "exp", "magic", "high", "medium", "low", "low"),
     "baxia":      ("roam", "jungle", "physical", "high", "medium", "high", "high"),
-    "nana_roam":  ("roam", "mid", "magic", "low", "high", "low", "low"),
-    "valir_roam": ("roam", "mid", "magic", "low", "high", "low", "low"),
     "hylos":      ("roam", "exp", "magic", "low", "high", "high", "high"),
     "belerick":   ("roam", "exp", "magic", "low", "high", "high", "high"),
     "lolita":     ("roam", "exp", "magic", "low", "high", "high", "high"),
@@ -64,7 +62,6 @@ HERO_ROLES = {
     "hayabusa":   ("jungle", "exp", "physical", "high", "low", "low", "low"),
     "lancelot":   ("jungle", "exp", "physical", "very_high", "low", "low", "low"),
     "gusion":     ("jungle", "mid", "magic", "high", "low", "low", "low"),
-    "fed":        ("jungle", "exp", "physical", "medium", "low", "low", "low"),
     "martis":     ("jungle", "exp", "physical", "high", "high", "medium", "medium"),
     "roger":      ("jungle", "gold", "physical", "high", "low", "medium", "low"),
     "yin":        ("jungle", "exp", "physical", "high", "high", "medium", "medium"),
@@ -75,13 +72,11 @@ HERO_ROLES = {
     "harley":     ("jungle", "mid", "magic", "high", "low", "low", "low"),
     "lunox":      ("jungle", "mid", "magic", "high", "low", "low", "low"),
     "karrie":     ("jungle", "gold", "true_dmg", "medium", "low", "low", "low"),
-    "akai_jungle": ("jungle", "roam", "physical", "high", "high", "high", "high"),
-    "barats_jungle": ("jungle", "exp", "physical", "low", "high", "high", "high"),
     # MID
     "valentina":  ("mid", "exp", "magic", "high", "low", "low", "low"),
     "kagura":     ("mid", "exp", "magic", "high", "medium", "low", "low"),
     "lylia":      ("mid", "exp", "magic", "high", "low", "high", "low"),
-    "chang":      ("mid", "gold", "magic", "high", "low", "low", "low"),
+    "chang_e":    ("mid", "gold", "magic", "high", "low", "low", "low"),
     "eudora":     ("mid", "roam", "magic", "low", "very_high", "low", "low"),
     "aurora":     ("mid", "roam", "magic", "low", "very_high", "low", "low"),
     "kadita":     ("mid", "exp", "magic", "medium", "high", "low", "low"),
@@ -93,7 +88,6 @@ HERO_ROLES = {
     "alice":      ("mid", "exp", "magic", "high", "medium", "high", "high"),
     "valir":      ("mid", "roam", "magic", "low", "high", "low", "low"),
     "novaria":    ("mid", "gold", "magic", "high", "low", "low", "low"),
-    "lunox_mid":  ("mid", "jungle", "magic", "high", "low", "low", "low"),
     "joy":        ("mid", "jungle", "magic", "high", "medium", "medium", "low"),
     "cecilion":   ("mid", "gold", "magic", "low", "low", "low", "low"),
     "vexana":     ("mid", "roam", "magic", "low", "high", "low", "low"),
@@ -120,8 +114,6 @@ HERO_ROLES = {
     "irithel":    ("gold", "jungle", "physical", "medium", "low", "low", "low"),
     "melissa":    ("gold", "exp", "physical", "medium", "low", "low", "low"),
     "popol":      ("gold", "exp", "physical", "medium", "medium", "low", "low"),
-    "karrie_gold":("gold", "jungle", "true_dmg", "medium", "low", "low", "low"),
-    "brody_gold": ("gold", "exp", "physical", "low", "low", "medium", "medium"),
     "ixia":       ("gold", "exp", "physical", "low", "medium", "low", "low"),
     "fredrinn":   ("roam", "exp", "physical", "low", "high", "high", "high"),
     # ADDITIONAL HEROES
@@ -162,7 +154,7 @@ HEALERS = {"estes", "rafaela", "angela", "floryn"}
 TRUE_DMG = {"karrie", "lunox", "dyrroth", "alpha"}
 SUSTAIN_TANKS = {"uranus", "esmeralda", "hylos", "belerick", "barats", "grock", "terizla", "thamuz", "gloo", "gatotkaca", "minotaur", "khaleed", "leomord", "phoveus"}
 POKE_MAGES = {"yve", "pharsa", "novaria", "xavier", "cecilion", "gord", "zhask", "luo_yi"}
-DIVE_ASSASSINS = {"fanny", "ling", "hayabusa", "lancelot", "benedetta", "gusion", "fed", "yin", "helcurt", "aamon", "karina", "nolan", "suyou"}
+DIVE_ASSASSINS = {"fanny", "ling", "hayabusa", "lancelot", "benedetta", "gusion", "yin", "helcurt", "aamon", "karina", "nolan", "suyou"}
 BURST_MAGES = {"eudora", "aurora", "kadita", "selena", "saber", "harley", "odette", "vexana", "vale", "zhuxin"}
 SETUP_MAGES = {"atlas", "tigreal", "kaja", "carmilla", "khufra"}
 PURIFY_COUNTERS = {"atlas", "tigreal", "kaja", "khufra", "chou"}
@@ -173,7 +165,7 @@ ALIASES.update({
     "esme": "esmeralda", "yuzhong": "yu_zhong", "uranus": "uranus", "urasmus": "uranus",
     "bene": "benedetta", "haya": "hayabusa", "lance": "lancelot",
     "bea": "beatrix", "nova": "novaria", "vale": "valentina",
-    "change": "chang", "min": "minsitthar", "john": "johnson", "jonson": "johnson",
+    "change": "chang_e", "min": "minsitthar", "john": "johnson", "jonson": "johnson",
     "kupa": "popol", "popol": "popol", "xborg": "x_borg",
     "lapu": "lapu_lapu", "ceci": "cecilion", "luoyi": "luo_yi",
     "ixia": "ixia", "fred": "fredrinn", "fredrinn": "fredrinn",
@@ -276,8 +268,6 @@ COUNTER_KNOWLEDGE = {
                 "Kite him. Cici % damage. True damage ignores his passive."),
     "ruby": (["yu_zhong", "esmeralda", "thamuz", "paquito"],
              "Out-damage her sustain. Esmeralda shield > Ruby heal."),
-    "fed": (["lancelot", "ling", "valir", "diggie", "lylia"],
-            "Valir pushes him away from camps. Lylia survives his fury. Avoid early fights."),
     "alice": (["kadita", "eudora", "aurora", "saber", "harley"],
               "Burst her before she ults. Anti-heal + cc lock."),
     "yve": (["fanny", "ling", "hayabusa", "lancelot", "benedetta"],
@@ -292,7 +282,7 @@ COUNTER_KNOWLEDGE = {
               "Baxia reduces heal. True damage ignores heal. Burst him or his carry."),
     "rafaela": (["baxia", "chou", "tigreal", "atlas", "franco"],
                 "CC lock her before she ults. Baxia for anti-heal."),
-    "angela": (["baxia", "cici", "fed", "benedetta", "long_range_mm"],
+    "angela": (["baxia", "cici", "benedetta", "long_range_mm"],
                "Kill her teammate while she's attached. Baxia anti-heal."),
     "atlas": (["diggie", "valir", "franco", "nana"],
               "DIGGIE = hard counter. His ult = useless. Valir pushes mid-ult. Franco hook cancels."),
@@ -300,7 +290,7 @@ COUNTER_KNOWLEDGE = {
                 "Same as Atlas. Diggie best counter. Valir pushes him away."),
     "johnson": (["valentina", "minsitthar", "franco", "diggie", "ruby"],
                 "Valentina steals his car. Minsitthar traps landing zone. Franco hooks mid-drive."),
-    "khufra": (["valir", "kagura", "lylia", "diggie", "change"],
+    "khufra": (["valir", "kagura", "lylia", "diggie", "chang_e"],
                "Ranged mages with no dash. Avoid blinking near him."),
     "kaja": (["diggie", "rafaela", "lylia", "kagura", "valir"],
              "Diggie ult removes suppression. Lylia ult saves. Kite him."),
@@ -328,7 +318,7 @@ COUNTER_KNOWLEDGE = {
                "Burst + point-click CC. Don't chase — she escapes easily."),
     "lylia": (["saber", "kadita", "selena", "eudora"],
               "Burst her before she stacks orbs. She's weak early game."),
-    "baxia": (["valentina", "kagura", "lylia", "change"],
+    "baxia": (["valentina", "kagura", "lylia", "chang_e"],
               "He's tanky but lacks hard CC. Mobile mages ignore him. Kite him."),
     "grock": (["valir", "ruby", "chou", "cici"],
               "Valir pushes him away from walls. Cici % damage. Kite him."),
@@ -538,10 +528,6 @@ def suggest_roles(enemy_heroes, analysis):
                    ("Nana", "Molina blocks their dashes. Survive."),
                    ("Aurora", "Freeze them mid-dive. Burst.")]
             break
-        elif j == "fed":
-            mid = [("Valir", "Push him away from camps. Slow his farm."),
-                   ("Lylia", "Survives his fury. Orb sustain.")]
-            break
     for r in enemy_roam:
         if r in ("atlas", "tigreal"):
             mid = [("Diggie (mid)", "Ult makes their engage useless. Hard counter."),
@@ -636,8 +622,8 @@ def generate_playstyle(enemy_heroes, role_picks, analysis):
             our_picks.append(h.lower().replace(" (jungle)", "").replace(" (mid)", "").replace(" (roam)", "").replace(" (exp)", ""))
 
     # Early game
-    our_early_power = [h for h in our_picks if h in {"fed", "martis", "hilda", "valir", "khaleed", "paquito", "dyrroth", "roger", "arlott", "badang", "aulus"}]
-    enemy_early_power = [h for h in enemy_heroes if h in {"fed", "martis", "hilda", "valir", "khaleed", "paquito", "dyrroth", "roger", "arlott", "badang", "aulus"}]
+    our_early_power = [h for h in our_picks if h in {"martis", "hilda", "valir", "khaleed", "paquito", "dyrroth", "roger", "arlott", "badang", "aulus"}]
+    enemy_early_power = [h for h in enemy_heroes if h in {"martis", "hilda", "valir", "khaleed", "paquito", "dyrroth", "roger", "arlott", "badang", "aulus"}]
 
     if our_early_power and not enemy_early_power:
         guide["early"].append("YOU WIN EARLY. Invade their jungle. Force fights. Contest all turtles.")
