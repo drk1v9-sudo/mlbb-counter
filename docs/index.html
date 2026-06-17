@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MLBB Draft Counter Picker</title>
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css?v=4">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚔️</text></svg>">
 </head>
 <body>
@@ -45,9 +45,240 @@
     </div>
 
     <div class="results" id="results"></div>
+
+    <!-- ═══ COUNTER PICKS GUIDE ═══ -->
+    <div class="section guide-section" id="counterGuide">
+      <div class="section-title" onclick="toggleSection('counterGuide')">Counter Picks Guide <span class="toggle-icon">+</span></div>
+      <div class="guide-body" style="display:none">
+        <div class="guide-subtitle">Which hero types beat which archetypes</div>
+
+        <div class="guide-card">
+          <div class="guide-card-title">vs High Mobility Assassins (Fanny, Ling, Lancelot)</div>
+          <div class="guide-card-row"><span class="badge green">COUNTER</span> Khufra, Minsitthar, Aurora, Nana</div>
+          <div class="guide-card-text">Anti-dash heroes shut down their entire kit. Khufra S2 creates a wall they can't pass. Minsitthar ult traps them. Aurora freezes them on landing. Nana Molina blocks dash paths.</div>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-card-title">vs Sustain Tanks (Uranus, Esmeralda, Belerick)</div>
+          <div class="guide-card-row"><span class="badge green">COUNTER</span> Karrie, Cici, Baxia, Dyrroth</div>
+          <div class="guide-card-text">True damage ignores shields and armor. Baxia reduces all healing by 50%. Cici %HP damage shreds high-HP targets. Dominance Ice cuts their sustain in half.</div>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-card-title">vs Heavy CC Tanks (Atlas, Tigreal, Khufra)</div>
+          <div class="guide-card-row"><span class="badge green">COUNTER</span> Diggie, Valir, Franco, Lolita</div>
+          <div class="guide-card-text">Diggie ult cleanses ALL CC — makes their engage useless. Valir pushes them away before they can set up. Franco hooks them mid-engage. Never clump together.</div>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-card-title">vs Healer Comps (Estes, Floryn, Rafaela)</div>
+          <div class="guide-card-row"><span class="badge green">COUNTER</span> Baxia, Karrie, Lunox, Kaja</div>
+          <div class="guide-card-text">Baxia passive reduces ALL healing by 50%. True damage ignores healing entirely. Burst the healer FIRST — they're squishy. Everyone must buy anti-heal (Dominance Ice, Sea Halberd).</div>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-card-title">vs Poke Mages (Pharsa, Yve, Xavier, Novaria)</div>
+          <div class="guide-card-row"><span class="badge green">COUNTER</span> Fanny, Ling, Natalia, Helcurt</div>
+          <div class="guide-card-text">Dive assassins reach them before they can poke. They're immobile — one CC kills them. Rush Athena's Shield for magic defense. End fights quickly before they wear you down.</div>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-card-title">vs Squishy Marksmen (Layla, Hanabi, Miya)</div>
+          <div class="guide-card-row"><span class="badge green">COUNTER</span> Any assassin, Franco, Kaja</div>
+          <div class="guide-card-text">Zero mobility = free kill. Any assassin one-shots them. Franco hook is a guaranteed kill. Kaja point-click ult drags them out of position. Camp them early — they're useless without items.</div>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-card-title">vs Shield Stacking (Esmeralda, Grock, Uranus)</div>
+          <div class="guide-card-row"><span class="badge green">COUNTER</span> Karrie, Cici, Baxia, Blade of the Heptaseas</div>
+          <div class="guide-card-text">Karrie passive shreds shields with true damage. Cici %HP ignores shields. Baxia cuts shield gain by 50%. Never pick magic damage vs shield heroes — they heal from it.</div>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-card-title">vs Dash-Dependent Heroes (Chou, Benedetta, Joy)</div>
+          <div class="guide-card-row"><span class="badge green">COUNTER</span> Khufra, Minsitthar, Diggie, Valir</div>
+          <div class="guide-card-text">Anti-dash makes them useless — they can't engage, can't escape. Diggie ult cleanses their CC combos. Valir pushes them away mid-dash. Never pick dash heroes into Khufra.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ BEST HEROES BY ROLE ═══ -->
+    <div class="section guide-section" id="roleGuide">
+      <div class="section-title" onclick="toggleSection('roleGuide')">Best Heroes by Role <span class="toggle-icon">+</span></div>
+      <div class="guide-body" style="display:none">
+
+        <!-- TABS -->
+        <div class="guide-tabs">
+          <button class="guide-tab active" onclick="switchPartyTab(this,'solo')">Solo Queue</button>
+          <button class="guide-tab" onclick="switchPartyTab(this,'trio')">Trio</button>
+          <button class="guide-tab" onclick="switchPartyTab(this,'five')">5-Man</button>
+        </div>
+
+        <!-- SOLO QUEUE -->
+        <div class="party-panel" id="panel-solo">
+          <div class="guide-card">
+            <div class="guide-card-title"><span class="role-dot roam"></span> Roam</div>
+            <div class="guide-picks">
+              <div class="guide-pick"><b>Khufra</b> — Best all-around tank. Anti-dash, AoE CC, counters assassins. Works in every draft.</div>
+              <div class="guide-pick"><b>Atlas</b> — 5-man ult wins teamfights. Pair with burst mage. Need good timing.</div>
+              <div class="guide-pick"><b>Estes</b> — Best healer in solo. Your team will follow you. Win through sustain.</div>
+              <div class="guide-pick"><b>Mathilda</b> — Mobile support that can carry. Shield + damage + mobility. Good for aggressive plays.</div>
+            </div>
+          </div>
+
+          <div class="guide-card">
+            <div class="guide-card-title"><span class="role-dot exp"></span> EXP Lane</div>
+            <div class="guide-picks">
+              <div class="guide-pick"><b>Chou</b> — Outplay potential is insane. Kick carries into team. High skill ceiling.</div>
+              <div class="guide-pick"><b>Yu Zhong</b> — Dragon form wins teamfights. Strong in lane, scales well. Hard to kill.</div>
+              <div class="guide-pick"><b>Phoveus</b> — Punishes dash heroes. Ranged poke + anti-mobility. Counters most meta picks.</div>
+              <div class="guide-pick"><b>Terizla</b> — Easy to play, hard to kill. S2 waveclear + ult CC. Safe blind pick.</div>
+            </div>
+          </div>
+
+          <div class="guide-card">
+            <div class="guide-card-title"><span class="role-dot jungle"></span> Jungle</div>
+            <div class="guide-picks">
+              <div class="guide-pick"><b>Fanny</b> — Highest carry potential in the game. Need blue buff. Insane with practice.</div>
+              <div class="guide-pick"><b>Ling</b> — Wall mobility + burst. Strong late game. Need blue buff to function.</div>
+              <div class="guide-pick"><b>Hayabusa</b> — Easy to pick up. Shadow escape + point-click ult. Good for ganks.</div>
+              <div class="guide-pick"><b>Roger</b> — Fast clears, strong early. Transform mechanic. Safe jungle pick.</div>
+            </div>
+          </div>
+
+          <div class="guide-card">
+            <div class="guide-card-title"><span class="role-dot mid"></span> Mid Lane</div>
+            <div class="guide-picks">
+              <div class="guide-pick"><b>Eudora</b> — Point-click stun + burst. Easiest mage to carry with. One combo = kill.</div>
+              <div class="guide-pick"><b>Aurora</b> — Freezing passive wins teamfights. AOE burst. Easy to play.</div>
+              <div class="guide-pick"><b>Lylia</b> — Insane waveclear. Gloom stacks melt teams. Hard to kill with ult reset.</div>
+              <div class="guide-pick"><b>Valentina</b> — Copy enemy ult. Flexible pick. Strong in mid-game.</div>
+            </div>
+          </div>
+
+          <div class="guide-card">
+            <div class="guide-card-title"><span class="role-dot gold"></span> Gold Lane</div>
+            <div class="guide-picks">
+              <div class="guide-pick"><b>Beatrix</b> — Highest MM damage. 4 weapons = versatility. Strong all game.</div>
+              <div class="guide-pick"><b>Claude</b> — Blazing Duet shreds teams. DHS + ult = team wipe. Need farm.</div>
+              <div class="guide-pick"><b>Moskov</b> — Piercing basic attacks. Strong in teamfights. Easy to kite with.</div>
+              <div class="guide-pick"><b>Brody</b> — Strong early game. Burst + mobility. Can win lane solo.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRIO -->
+        <div class="party-panel" id="panel-trio" style="display:none">
+          <div class="guide-card">
+            <div class="guide-card-title"><span class="role-dot roam"></span> Roam</div>
+            <div class="guide-picks">
+              <div class="guide-pick"><b>Khufra</b> — Still the best. Coordinate engages with your trio.</div>
+              <div class="guide-pick"><b>Diggie</b> — Duo with any CC tank. Negates enemy setup completely.</div>
+              <div class="guide-pick"><b>Mathilda</b> — Shield + mobility lets your trio dive together. Great for coordinated plays.</div>
+              <div class="guide-pick"><b>Kaja</b> — Point-click suppression. Coordinate picks with your duo/trio.</div>
+            </div>
+          </div>
+
+          <div class="guide-card">
+            <div class="guide-card-title"><span class="role-dot exp"></span> EXP Lane</div>
+            <div class="guide-picks">
+              <div class="guide-pick"><b>Yu Zhong</b> — Dragon form zones enemies while your trio flanks.</div>
+              <div class="guide-pick"><b>Chou</b> — Kick targets into your duo's burst combo.</div>
+              <div class="guide-pick"><b>Lapu-Lapu</b> — AoE CC ult sets up for your trio's follow-up.</div>
+              <div class="guide-pick"><b>Thamuz</b> — Sustain + damage. Can hold lane while duo rotates.</div>
+            </div>
+          </div>
+
+          <div class="guide-card">
+            <div class="guide-card-title"><span class="role-dot jungle"></span> Jungle</div>
+            <div class="guide-picks">
+              <div class="guide-pick"><b>Fanny</b> — Trio protects her blue buff. She carries late.</div>
+              <div class="guide-pick"><b>Lancelot</b> — Resets in teamfights. Coordinate ganks with duo.</div>
+              <div class="guide-pick"><b>Nolan</b> — Dash resets + burst. Fast clears. Good for objective control.</div>
+              <div class="guide-pick"><b>Suyou</b> — Versatile form switcher. Strong in coordinated fights.</div>
+            </div>
+          </div>
+
+          <div class="guide-card">
+            <div class="guide-card-title"><span class="role-dot mid"></span> Mid Lane</div>
+            <div class="guide-picks">
+              <div class="guide-pick"><b>Kagura</b> — High outplay. Coordinate umbrella combos with trio.</div>
+              <div class="guide-pick"><b>Pharsa</b> — AoE ult zones for trio's engage. Strong in coordinated teamfights.</div>
+              <div class="guide-pick"><b>Valentina</b> — Copy enemy key ult. Adapt to enemy draft.</div>
+              <div class="guide-pick"><b>Lunox</b> — Chaos form melts tanks. Light form survives dives. Flexible.</div>
+            </div>
+          </div>
+
+          <div class="guide-card">
+            <div class="guide-card-title"><span class="role-dot gold"></span> Gold Lane</div>
+            <div class="guide-picks">
+              <div class="guide-pick"><b>Beatrix</b> — Trio protects her while she scales. Highest MM damage.</div>
+              <div class="guide-pick"><b>Claude</b> — Trio sets up Blazing Duet with CC. Team wipe potential.</div>
+              <div class="guide-pick"><b>Wanwan</b> — Trio peels for her weakness stacking. Ult kills entire team.</div>
+              <div class="guide-pick"><b>Brody</b> — Strong early. Trio ganks lane. Snowball potential.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5-MAN -->
+        <div class="party-panel" id="panel-five" style="display:none">
+          <div class="guide-card">
+            <div class="guide-card-title"><span class="role-dot roam"></span> Roam</div>
+            <div class="guide-picks">
+              <div class="guide-pick"><b>Atlas</b> — 5-man ult in coordinated comp. Guaranteed team wipe with follow-up.</div>
+              <div class="guide-pick"><b>Tigreal</b> — Push-pull combo into team. Coordinate timing with everyone.</div>
+              <div class="guide-pick"><b>Khufra</b> — Anti-dash + AoE CC. Best if enemy has assassins.</div>
+              <div class="guide-pick"><b>Estes</b> — Full sustain comp. Your team never dies. Dominant in 5-man.</div>
+            </div>
+          </div>
+
+          <div class="guide-card">
+            <div class="guide-card-title"><span class="role-dot exp"></span> EXP Lane</div>
+            <div class="guide-picks">
+              <div class="guide-pick"><b>Yu Zhong</b> — Dragon form zones for team. Dive backline while team engages front.</div>
+              <div class="guide-pick"><b>Lapu-Lapu</b> — AoE ult + CC chain. Perfect for teamfight comps.</div>
+              <div class="guide-pick"><b>Esmeralda</b> — Sustain + shield steal. Frontline that never dies.</div>
+              <div class="guide-pick"><b>Chou</b> — Kick enemy carry into your team. Coordinate target selection.</div>
+            </div>
+          </div>
+
+          <div class="guide-card">
+            <div class="guide-card-title"><span class="role-dot jungle"></span> Jungle</div>
+            <div class="guide-picks">
+              <div class="guide-pick"><b>Fanny</b> — 5-man protects blue buff. She's unstoppable with full farm.</div>
+              <div class="guide-pick"><b>Ling</b> — Wall jump + ult. Team peels while he picks off backline.</div>
+              <div class="guide-pick"><b>Lancelot</b> — I-frame combos in teamfights. Coordinate engage timing.</div>
+              <div class="guide-pick"><b>Nolan</b> — Fast objective takes. Dash resets in teamfights. Good for macro.</div>
+            </div>
+          </div>
+
+          <div class="guide-card">
+            <div class="guide-card-title"><span class="role-dot mid"></span> Mid Lane</div>
+            <div class="guide-picks">
+              <div class="guide-pick"><b>Pharsa</b> — AoE ult zones entire areas. Coordinate with roam's CC.</div>
+              <div class="guide-pick"><b>Yve</b> — Global slow + damage. Controls entire teamfight pace.</div>
+              <div class="guide-pick"><b>Kagura</b> — High outplay + AoE. Coordinate umbrella combos.</div>
+              <div class="guide-pick"><b>Valentina</b> — Copy enemy ult. Adapt to their comp. Strong in coordinated play.</div>
+            </div>
+          </div>
+
+          <div class="guide-card">
+            <div class="guide-card-title"><span class="role-dot gold"></span> Gold Lane</div>
+            <div class="guide-picks">
+              <div class="guide-pick"><b>Beatrix</b> — Highest damage. 5-man peels for her. Team fight MVP.</div>
+              <div class="guide-pick"><b>Claude</b> — DHS + Blazing Duet. Team sets up CC for his ult. Wombo combo.</div>
+              <div class="guide-pick"><b>Wanwan</b> — Weakness stacking + ult. Team protects while she ramps up.</div>
+              <div class="guide-pick"><b>Karrie</b> — Tank melter. Perfect vs tank-heavy comps. True damage carry.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 
-  <script src="app.js?v=3"></script>
+  <script src="app.js?v=4"></script>
   <script>
     function analyze() {
       const names = [1,2,3,4,5].map(i => document.getElementById('h'+i).value.trim());
@@ -172,6 +403,28 @@
       el.addEventListener('keydown', e => { if (e.key==='Enter' && !activeAc) analyze(); });
       setupAutocomplete(el, el.id);
     });
+
+    // Guide section toggle
+    function toggleSection(id) {
+      const sec = document.getElementById(id);
+      const body = sec.querySelector('.guide-body');
+      const icon = sec.querySelector('.toggle-icon');
+      if (body.style.display === 'none') {
+        body.style.display = 'block';
+        sec.classList.add('open');
+      } else {
+        body.style.display = 'none';
+        sec.classList.remove('open');
+      }
+    }
+
+    // Party tab switching
+    function switchPartyTab(btn, panel) {
+      document.querySelectorAll('.guide-tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.party-panel').forEach(p => p.style.display = 'none');
+      document.getElementById('panel-' + panel).style.display = 'block';
+    }
   </script>
 </body>
 </html>

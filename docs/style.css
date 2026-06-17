@@ -106,6 +106,39 @@ h1{text-align:center;color:#00e5ff;font-size:1.4rem;margin:8px 0 2px;letter-spac
 .ac-name{color:#d8d8e8;font-size:14px;font-weight:500}
 .ac-role{color:#fff;font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;text-transform:uppercase;letter-spacing:.5px}
 
+/* ── Guide Sections ── */
+.guide-section{cursor:pointer}
+.guide-section .section-title{cursor:pointer;user-select:none}
+.toggle-icon{margin-left:auto;font-size:1.1rem;transition:transform .2s}
+.guide-section.open .toggle-icon{transform:rotate(45deg)}
+.guide-subtitle{color:#556;font-size:.78rem;margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px}
+.guide-card{background:#0a0a14;border:1px solid #161628;border-radius:10px;padding:14px;margin-bottom:10px}
+.guide-card:last-child{margin-bottom:0}
+.guide-card-title{color:#00e5ff;font-weight:700;font-size:.88rem;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.guide-card-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap}
+.guide-card-text{color:#667;font-size:.8rem;line-height:1.5}
+.guide-picks{display:flex;flex-direction:column;gap:8px}
+.guide-pick{color:#aab;font-size:.82rem;line-height:1.5;padding-left:10px;border-left:2px solid #1e1e35}
+.guide-pick b{color:#5c5}
+.guide-pick::before{content:''}
+
+/* Role dots */
+.role-dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex-shrink:0}
+.role-dot.roam{background:#5c5}
+.role-dot.exp{background:#58f}
+.role-dot.jungle{background:#f66}
+.role-dot.mid{background:#cc5}
+.role-dot.gold{background:#f8c}
+
+/* Tabs */
+.guide-tabs{display:flex;gap:6px;margin-bottom:14px;overflow-x:auto;scrollbar-width:none}
+.guide-tabs::-webkit-scrollbar{display:none}
+.guide-tab{background:#0e0e1a;border:1.5px solid #1e1e35;color:#667;padding:8px 16px;border-radius:8px;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s;white-space:nowrap;flex-shrink:0}
+.guide-tab.active{background:#0055aa;border-color:#0088dd;color:#fff}
+.guide-tab:hover:not(.active){border-color:#333;color:#aab}
+.party-panel{animation:fadeIn .2s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
 /* Scrollbar */
 ::-webkit-scrollbar{width:5px}
 ::-webkit-scrollbar-track{background:transparent}
