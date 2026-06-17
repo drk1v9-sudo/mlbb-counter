@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MLBB Draft Counter Picker</title>
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="style.css?v=5">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚔️</text></svg>">
 </head>
 <body>
@@ -12,44 +12,46 @@
     <h1>⚔️ MLBB Draft Counter Picker</h1>
     <p class="subtitle">Enter 5 enemy heroes — get counter-picks, items, playstyle & more</p>
 
-    <div class="input-group">
-      <div class="input-row" data-role="roam">
-        <div class="input-num n1">1</div>
-        <input type="text" id="h1" class="input-field" placeholder="Enemy Roam (e.g. atlas)" autocomplete="off" autofocus>
-        <div class="autocomplete-list"></div>
-      </div>
-      <div class="input-row" data-role="exp">
-        <div class="input-num n2">2</div>
-        <input type="text" id="h2" class="input-field" placeholder="Enemy EXP Lane (e.g. chou)" autocomplete="off">
-        <div class="autocomplete-list"></div>
-      </div>
-      <div class="input-row" data-role="jungle">
-        <div class="input-num n3">3</div>
-        <input type="text" id="h3" class="input-field" placeholder="Enemy Jungler (e.g. fanny)" autocomplete="off">
-        <div class="autocomplete-list"></div>
-      </div>
-      <div class="input-row" data-role="mid">
-        <div class="input-num n4">4</div>
-        <input type="text" id="h4" class="input-field" placeholder="Enemy Mid Lane (e.g. valir)" autocomplete="off">
-        <div class="autocomplete-list"></div>
-      </div>
-      <div class="input-row" data-role="gold">
-        <div class="input-num n5">5</div>
-        <input type="text" id="h5" class="input-field" placeholder="Enemy Gold Lane (e.g. beatrix)" autocomplete="off">
-        <div class="autocomplete-list"></div>
-      </div>
-    </div>
+    <!-- ═══ COUNTER PICKS (with draft input) ═══ -->
+    <div class="section guide-section open" id="counterGuide">
+      <div class="section-title" onclick="toggleSection('counterGuide')">Draft Analyzer <span class="toggle-icon">+</span></div>
+      <div class="guide-body">
 
-    <div class="btn-wrap">
-      <button class="analyze-btn" onclick="analyze()">⚔️ ANALYZE DRAFT</button>
-    </div>
+        <div class="input-group">
+          <div class="input-row" data-role="roam">
+            <div class="input-num n1">1</div>
+            <input type="text" id="h1" class="input-field" placeholder="Enemy Roam (e.g. atlas)" autocomplete="off" autofocus>
+            <div class="autocomplete-list"></div>
+          </div>
+          <div class="input-row" data-role="exp">
+            <div class="input-num n2">2</div>
+            <input type="text" id="h2" class="input-field" placeholder="Enemy EXP Lane (e.g. chou)" autocomplete="off">
+            <div class="autocomplete-list"></div>
+          </div>
+          <div class="input-row" data-role="jungle">
+            <div class="input-num n3">3</div>
+            <input type="text" id="h3" class="input-field" placeholder="Enemy Jungler (e.g. fanny)" autocomplete="off">
+            <div class="autocomplete-list"></div>
+          </div>
+          <div class="input-row" data-role="mid">
+            <div class="input-num n4">4</div>
+            <input type="text" id="h4" class="input-field" placeholder="Enemy Mid Lane (e.g. valir)" autocomplete="off">
+            <div class="autocomplete-list"></div>
+          </div>
+          <div class="input-row" data-role="gold">
+            <div class="input-num n5">5</div>
+            <input type="text" id="h5" class="input-field" placeholder="Enemy Gold Lane (e.g. beatrix)" autocomplete="off">
+            <div class="autocomplete-list"></div>
+          </div>
+        </div>
 
-    <div class="results" id="results"></div>
+        <div class="btn-wrap">
+          <button class="analyze-btn" onclick="analyze()">⚔️ ANALYZE DRAFT</button>
+        </div>
 
-    <!-- ═══ COUNTER PICKS GUIDE ═══ -->
-    <div class="section guide-section" id="counterGuide">
-      <div class="section-title" onclick="toggleSection('counterGuide')">Counter Picks Guide <span class="toggle-icon">+</span></div>
-      <div class="guide-body" style="display:none">
+        <div class="results" id="results"></div>
+
+        <div class="guide-divider"></div>
         <div class="guide-subtitle">Which hero types beat which archetypes</div>
 
         <div class="guide-card">
@@ -278,7 +280,7 @@
 
   </div>
 
-  <script src="app.js?v=4"></script>
+  <script src="app.js?v=5"></script>
   <script>
     function analyze() {
       const names = [1,2,3,4,5].map(i => document.getElementById('h'+i).value.trim());

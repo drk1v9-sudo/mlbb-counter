@@ -112,6 +112,7 @@ h1{text-align:center;color:#00e5ff;font-size:1.4rem;margin:8px 0 2px;letter-spac
 .toggle-icon{margin-left:auto;font-size:1.1rem;transition:transform .2s}
 .guide-section.open .toggle-icon{transform:rotate(45deg)}
 .guide-subtitle{color:#556;font-size:.78rem;margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px}
+.guide-divider{border-top:1px solid #161628;margin:16px 0}
 .guide-card{background:#0a0a14;border:1px solid #161628;border-radius:10px;padding:14px;margin-bottom:10px}
 .guide-card:last-child{margin-bottom:0}
 .guide-card-title{color:#00e5ff;font-weight:700;font-size:.88rem;margin-bottom:8px;display:flex;align-items:center;gap:8px}
