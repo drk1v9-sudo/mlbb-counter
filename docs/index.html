@@ -149,7 +149,7 @@
         r.counterTips.forEach(t => {
           h += `<div class="counter-block">
             <div class="counter-hero">vs ${t.hero}</div>
-            <div class="counter-picks"><b>Best picks:</b> ${t.counters.join(', ')}</div>
+            <div class="counter-picks"><b>Best picks:</b> ${t.counters.slice(0,5).join(', ')}</div>
             <div class="counter-strategy">${t.strategy}</div>
           </div>`;
         });

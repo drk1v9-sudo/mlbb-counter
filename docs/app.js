@@ -131,15 +131,20 @@ const HERO_ROLES = {
   yi_sun_shin:["gold","jungle","physical","high","low","low","low"],
   floryn:["roam","mid","magic","low","low","low","low"],
   guinevere:["exp","mid","magic","high","high","low","low"],
+  obsidia:["gold","jungle","physical","low","low","low","low"],
+  kalea:["roam","exp","physical","high","high","high","medium"],
+  zetian:["mid","gold","magic","low","medium","low","low"],
+  sora:["exp","jungle","physical","high","medium","medium","medium"],
+  hirara:["jungle","exp","physical","very_high","medium","low","low"],
 };
 
 const CC_TANKS=new Set(["atlas","tigreal","khufra","minsitthar","franco","akai","kaja","grock","lolita","gloo","johnson","minotaur","gatotkaca","chip"]);
-const HEALERS=new Set(["estes","rafaela","angela","floryn"]);
+const HEALERS=new Set(["estes","rafaela","angela","floryn","kalea"]);
 const TRUE_DMG=new Set(["karrie","lunox","dyrroth","alpha"]);
-const SUSTAIN_TANKS=new Set(["uranus","esmeralda","hylos","belerick","barats","grock","terizla","thamuz","gloo","gatotkaca","minotaur","khaleed","leomord","phoveus"]);
-const POKE_MAGES=new Set(["yve","pharsa","novaria","xavier","cecilion","gord","zhask","luo_yi"]);
-const DIVE_ASSASSINS=new Set(["fanny","ling","hayabusa","lancelot","benedetta","gusion","yin","helcurt","aamon","karina","nolan","suyou"]);
-const BURST_MAGES=new Set(["eudora","aurora","kadita","selena","saber","harley","odette","vexana","vale","zhuxin"]);
+const SUSTAIN_TANKS=new Set(["uranus","esmeralda","hylos","belerick","barats","grock","terizla","thamuz","gloo","gatotkaca","minotaur","khaleed","leomord","phoveus","kalea"]);
+const POKE_MAGES=new Set(["yve","pharsa","novaria","xavier","cecilion","gord","zhask","luo_yi","zetian"]);
+const DIVE_ASSASSINS=new Set(["fanny","ling","hayabusa","lancelot","benedetta","gusion","yin","helcurt","aamon","karina","nolan","suyou","sora","hirara"]);
+const BURST_MAGES=new Set(["eudora","aurora","kadita","selena","saber","harley","odette","vexana","vale","zhuxin","zetian"]);
 const SETUP_MAGES=new Set(["atlas","tigreal","kaja","carmilla","khufra"]);
 const PURIFY_COUNTERS=new Set(["atlas","tigreal","kaja","khufra","chou"]);
 const ANTI_DASH=new Set(["khufra","minsitthar"]);
@@ -156,6 +161,11 @@ Object.assign(ALIASES, {
   gatot:"gatotkaca",guin:"guinevere",leo:"leomord",
   mino:"minotaur",phov:"phoveus",soyou:"suyou",
   "yi sun shin":"yi_sun_shin",
+  obsidian:"obsidia",emp:"obsidia",
+  wu_zetian:"zetian",empress:"zetian",
+  hirara:"hirara",scarlet:"hirara",
+  sora:"sora",cloud:"sora",
+  kalea:"kalea",surging:"kalea",
 });
 
 // ─── AUTOCOMPLETE ───────────────────────────────────────────────────────────
@@ -273,9 +283,9 @@ const ITEM_RECOMMENDATIONS = {
     general:["Tough Boots","Blade of Despair","War Ax","Immortality"],
   },
   jungle:{
-    squishy:["Raptor Machete","Swift Boots","Blade of Despair","Berserker's Fury","Malefic Roar","Immortality"],
-    tanky:["Raptor Machete","Swift Boots","Demon Hunter Sword","Malefic Roar","Blade of Despair","Immortality"],
-    general:["Raptor Machete","Swift Boots","Blade of Despair","Berserker's Fury","Malefic Roar","Immortality"],
+    squishy:["Hunter Strike","Swift Boots","Blade of Despair","Berserker's Fury","Malefic Roar","Immortality"],
+    tanky:["Hunter Strike","Swift Boots","Demon Hunter Sword","Malefic Roar","Blade of Despair","Immortality"],
+    general:["Hunter Strike","Swift Boots","Blade of Despair","Berserker's Fury","Malefic Roar","Immortality"],
   },
   mid:{
     burst:["Arcane Boots","Lightning Truncheon","Holy Crystal","Divine Glaive","Blood Wings","Immortality"],
@@ -283,31 +293,31 @@ const ITEM_RECOMMENDATIONS = {
     general:["Arcane Boots","Lightning Truncheon","Holy Crystal","Divine Glaive","Blood Wings","Immortality"],
   },
   gold:{
-    tanky:["Swift Boots","Demon Hunter Sword","Scarlet Phantom","Berserker's Fury","Malefic Roar","Immortality"],
-    safe:["Swift Boots","Wind of Nature","Scarlet Phantom","Berserker's Fury","Blade of Despair","Immortality"],
-    general:["Swift Boots","Scarlet Phantom","Berserker's Fury","Blade of Despair","Malefic Roar","Immortality"],
+    tanky:["Swift Boots","Demon Hunter Sword","Great Dragon Spear","Berserker's Fury","Malefic Roar","Immortality"],
+    safe:["Swift Boots","Wind of Nature","Great Dragon Spear","Berserker's Fury","Blade of Despair","Immortality"],
+    general:["Swift Boots","Great Dragon Spear","Berserker's Fury","Blade of Despair","Malefic Roar","Immortality"],
   },
 };
 
 const COUNTER_KNOWLEDGE = {
-  fanny:["Khufra S2 cancels her cables mid-flight — she falls helplessly. Franco hooks her during cable travel. Nana Molina blocks cable paths, forcing her to re-route. Build Blade Armor to reflect her burst damage.","khufra","minsitthar","franco"],
-  ling:["Khufra S2 creates a wall that stops wall jumps — he falls and is vulnerable. Aurora freezes him the moment he lands. Minsitthar ult traps him in place. Deny his blue buff — he becomes useless without energy.","khufra","minsitthar","aurora"],
-  hayabusa:["Minsitthar ult creates a zone he can't escape from. Saber point-click ults him when he reappears from shadows. Khufra S2 cancels his shadow dashes. CC him right after he uses ult — he's stationary for 1s.","minsitthar","khufra","saber"],
-  lancelot:["Any anti-dash stops his infinite I-frame combos. Minsitthar ult traps his reset target. Ruby AoE hits him during dash. He's weakest before level 4 — camp him early.","khufra","minsitthar","ruby"],
+  fanny:["Khufra S2 cancels her cables mid-flight — she falls helplessly. Franco hooks her during cable travel. Nana Molina blocks cable paths, forcing her to re-route. Build Blade Armor to reflect her burst damage. Aurora freezes her when she lands.","khufra","minsitthar","franco","aurora","nana"],
+  ling:["Khufra S2 creates a wall that stops wall jumps — he falls and is vulnerable. Aurora freezes him the moment he lands. Minsitthar ult traps him in place. Deny his blue buff — he becomes useless without energy. Helcurt silences him on walls.","khufra","minsitthar","aurora","helcurt"],
+  hayabusa:["Minsitthar ult creates a zone he can't escape from. Saber point-click ults him when he reappears from shadows. Khufra S2 cancels his shadow dashes. CC him right after he uses ult — he's stationary for 1s. Eudora stun-bursts him instantly.","minsitthar","khufra","saber","eudora"],
+  lancelot:["Any anti-dash stops his infinite I-frame combos. Minsitthar ult traps his reset target. Ruby AoE hits him during dash. He's weakest before level 4 — camp him early. Khufra S2 bounces his dash resets.","khufra","minsitthar","ruby","eudora"],
   benedetta:["Anti-dash makes her useless — she can't dash, can't charge, can't escape. Valir pushes her away during charge animation. Khufra S2 bounces her every dash attempt.","khufra","minsitthar","valir"],
   gusion:["Anti-dash stops his daggers from returning. Nana Molina blocks his dagger landing spots. Saber ults him mid-combo before he can pick up daggers. Burst him instantly — he's paper-thin.","khufra","minsitthar","saber"],
-  chou:["Minsitthar stops his kick-back escape route. Diggie ult makes his entire combo useless — cleanses CC. Ruby out-sustains his burst and heals through his damage. Watch for his flicker-ult — stay behind your tank.","minsitthar","diggie","ruby"],
+  chou:["Minsitthar stops his kick-back escape route. Diggie ult makes his entire combo useless — cleanses CC. Ruby out-sustains his burst and heals through his damage. Watch for his flicker-ult — stay behind your tank. Nana Molina blocks his engage.","minsitthar","diggie","ruby","nana"],
   esmeralda:["True damage ignores her shield entirely — Karrie passive shreds her. Baxia reduces her shield gain by 50%. Cici %HP damage melts her regardless of shield stacking. Never pick magic damage vs her — she heals from it.","dyrroth","cici","karrie"],
   uranus:["True damage ignores his passive HP regen. Baxia passive reduces all his healing. Dominance Ice cuts his sustain in half. He's tanky but has no damage — ignore him and kill his team first.","thamuz","dyrroth","karrie"],
-  atlas:["DIGGIE IS HIS HARD COUNTER — his ult does nothing if Diggie ult is active. Valir pushes him away mid-ultimate animation. Franco hooks him during his setup. Never clump together — his 5-man ult = instant team wipe.","diggie","valir","franco"],
+  atlas:["DIGGIE IS HIS HARD COUNTER — his ult does nothing if Diggie ult is active. Valir pushes him away mid-ultimate animation. Franco hooks him during his setup. Never clump together — his 5-man ult = instant team wipe. Lolita blocks his ult.","diggie","valir","franco","lolita"],
   tigreal:["Same as Atlas — Diggie ult cleanses his push-pull combo. Valir pushes him away before he can set up. Nana Molina blocks his engage path. He's slow and predictable — ward his rotations.","diggie","valir","nana"],
-  estes:["Baxia reduces his healing by 50% — core pick. True damage (Karrie, Lunox) ignores his healing entirely. Burst him FIRST in every fight — he's squishy and immobile. Buy anti-heal items immediately.","baxia","lunox","kadita"],
-  khufra:["Ranged mages with NO dash counter him — Valir, Kagura, Lylia. Never blink or dash near him — his S2 bounces you. He's useless from range — poke him down before he can engage.","valir","kagura","lylia"],
+  estes:["Baxia reduces his healing by 50% — core pick. True damage (Karrie, Lunox) ignores his healing entirely. Burst him FIRST in every fight — he's squishy and immobile. Buy anti-heal items immediately. Kaja ults him out of position.","baxia","lunox","kadita","kaja"],
+  khufra:["Ranged mages with NO dash counter him — Valir, Kagura, Lylia. Never blink or dash near him — his S2 bounces you. He's useless from range — poke him down before he can engage. Diggie ult negates his CC entirely.","valir","kagura","lylia","diggie"],
   kaja:["Diggie ult cleanses his suppression — completely negates his pick. Lylia ult saves whoever he suppresses. He's squishy — burst him before he can drag your teammate into his team.","diggie","rafaela","lylia"],
-  claude:["Anti-dash stops his S2 curl escape. Eudora point-click stun + burst kills him before he can ult. Saber ults him during his S2 animation when he's stationary. He's useless without Demon Hunter Sword.","khufra","minsitthar","saber"],
+  claude:["Anti-dash stops his S2 curl escape. Eudora point-click stun + burst kills him before he can ult. Saber ults him during his S2 animation when he's stationary. He's useless without Demon Hunter Sword. Nana Molina blocks his Blazing Duet.","khufra","minsitthar","saber","nana"],
   wanwan:["Franco hook ignores her jump — pulls her straight. Kaja point-click ult drags her out. Aurora freeze before she can activate ult. She needs 5 weakness hits — don't let her stack them on you.","franco","kaja","aurora"],
-  beatrix:["She has ZERO escape abilities. Any dive assassin (Fanny, Ling, Hayabusa) kills her instantly. Bait her ult first — she's defenseless during cooldown. Focus her in teamfights — she's the highest damage threat.","fanny","ling","hayabusa"],
-  layla:["Zero mobility, zero escape — the easiest kill in the game. Any assassin one-shots her. She scales hard but is useless early. Camp her in lane — she can't run away from anything.","fanny","ling","hayabusa"],
+  beatrix:["She has ZERO escape abilities. Any dive assassin (Fanny, Ling, Hayabusa) kills her instantly. Bait her ult first — she's defenseless during cooldown. Focus her in teamfights — she's the highest damage threat. Nana Molina blocks her sniper.","fanny","ling","hayabusa","nana"],
+  layla:["Zero mobility, zero escape — the easiest kill in the game. Any assassin one-shots her. She scales hard but is useless early. Camp her in lane — she can't run away from anything. Franco hook = free kill.","fanny","ling","hayabusa","franco"],
   natan:["CC lock him — he needs proximity to deal damage. Valir pushes him out of range. His damage falls off if he can't stack passive. Franco hook + burst = free kill every time.","franco","kaja","valir"],
   lunox:["CC lock her BEFORE she enters chaos mode — once she's in light ult she's invincible. Burst damage > her light ult healing. She's squishy — one stun = death. Don't let her stack orbs freely.","saber","eudora","aurora"],
   lesley:["Zero escape skills. Any assassin kills her in one combo. Twilight Armor caps her crit damage at 900. She's invisible early game — buy detection wards.","fanny","ling","hayabusa"],
@@ -322,7 +332,7 @@ const COUNTER_KNOWLEDGE = {
   guinevere:["Her jump + knockup combo is her only engage. Khufra S2 bounces her jump. Minsitthar ult traps her mid-jump. Diggie ult cleanses her knockup. Don't group up — her ult hits AoE.","khufra","minsitthar","diggie"],
   hanabi:["Her shield reflects basic attacks — don't hit her when shielded. CC lock her AFTER shield breaks — she's defenseless. Her damage comes from basic attacks — buy Blade Armor. She has no escape.","khufra","atlas","aurora"],
   julian:["His enhanced skills reset on hits — anti-dash stops his engage. Saber ults him mid-combo before he can reset. Ruby CC locks him down. He's strongest at level 3 — be careful early.","khufra","minsitthar","saber"],
-  karina:["She resets on kills — DON'T die near her. Nana Molina + Diggie ult deny her reset window. CC lock her before she can kill your teammate. She's weak to burst — one stun = death.","diggie","nana","saber"],
+  karina:["She resets on kills — DON'T die near her. Nana Molina + Diggie ult deny her reset window. CC lock her before she can kill your teammate. She's weak to burst — one stun = death. She can't fight tanky heroes.","diggie","nana","saber","khufra"],
   khaleed:["Baxia reduces his sand healing by 50%. True damage ignores his sustain. Cici %HP damage kites him. He's immobile in sand form — poke him from range. He heals in ult — burst him after.","baxia","karrie","cici"],
   kimmy:["She moves while attacking but has zero escape. Fanny kills her instantly from range. Avoid standing in her S1 spray — it does massive DoT. She's squishy — one CC = death.","fanny","ling","hayabusa"],
   leomord:["Valir pushes him away during horse mode — completely negates his ult power spike. Cici kites him from range. Kite him during ult — he's fast but predictable. He's weak without his horse.","valir","cici","karrie"],
@@ -349,6 +359,11 @@ const COUNTER_KNOWLEDGE = {
   martis:["Burst him early — he's weak before level 4. CC lock him before he can ult reset. Eudora stun + burst kills him instantly. His ult resets on kills — don't let him get the first kill.","saber","eudora","aurora"],
   thamuz:["Kite him — he has no gap closer. He's strong in sustained fights — burst him quickly. Dyrroth out-damages him in short trades. He's weak to %HP damage — Cici shreds him.","benedetta","cici","valir"],
   dyrroth:["Dodge his S2 — that's his main burst. Sustain through his combo — he falls off after. Ruby out-heals his damage. Cici pokes him from range safely. He's weak after his S2 is on cooldown.","ruby","esmeralda","cici"],
+  obsidia:["She's immobile with no dash — dive assassins destroy her before she stacks. CC lock her in teamfights — she can't escape. Baxia reduces her healing. She's strongest late — end early or she becomes a monster. Watch her tether range.","fanny","baxia","khufra"],
+  kalea:["Her hook is single-target only — dodge it by staying behind minions. Burst her before she heals — anti-heal cuts her sustain. She's weak without her ult — engage before it's up. She's most dangerous when isolating a carry.","baxia","franco","khufra"],
+  zetian:["Her ult reveals all enemies — hide near teammates to avoid being burst. She's immobile — assassins one-shot her. Anti-magic (Athena's Shield) counters her burst. She's weak early — camp her in lane. Her S2 phoenix spirit has a delay.","saber","fanny","ling"],
+  sora:["Anti-dash stops his form-switch engages. He's strongest in Thunder form — CC him before he transforms. Burst him before he gets True Art stacks. He's weak to kiting — ranged heroes destroy him. He has no escape after using ult.","khufra","minotaur","diggie"],
+  hirara:["She relies on energy stacks — force extended fights to drain her. She's squishy — any CC kills her. Anti-dash stops her combo chains. She's weakest before level 4 — camp her. Ward jungle camps to track her path.","khufra","nana","diggie"],
 };
 
 function analyzeTeam(heroes) {
