@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MLBB Draft Counter Picker</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚔️</text></svg>">
+</head>
+<body>
+  <div class="container">
+    <h1>⚔️ MLBB Draft Counter Picker</h1>
+    <p class="subtitle">Enter 5 enemy heroes — get counter-picks, items, playstyle & more</p>
+
+    <div class="input-group">
+      <input type="text" id="h1" placeholder="Hero 1 (e.g. fanny)" autocomplete="off" autofocus>
+      <input type="text" id="h2" placeholder="Hero 2 (e.g. atlas)" autocomplete="off">
+      <input type="text" id="h3" placeholder="Hero 3 (e.g. estes)" autocomplete="off">
+      <input type="text" id="h4" placeholder="Hero 4 (e.g. beatrix)" autocomplete="off">
+      <input type="text" id="h5" placeholder="Hero 5 (e.g. chou)" autocomplete="off">
+    </div>
+
+    <button onclick="analyze()">ANALYZE DRAFT</button>
+
+    <div class="results" id="results"></div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    function analyze() {
+      const names = [1,2,3,4,5].map(i => document.getElementById('h'+i).value.trim());
+      if (names.some(n => !n)) {
+        document.getElementById('results').innerHTML = '<div class="section"><p class="danger">Please fill all 5 hero fields.</p></div>';
+        return;
+      }
+      const r = runAnalysis(names);
+      if (r.error) {
+        document.getElementById('results').innerHTML = `<div class="section"><p class="danger">${r.error}</p><p class="item-hint">Try: fanny, chou, ruby, ling, haya, atlas, estes, etc.</p></div>`;
+        return;
+      }
+      render(r);
+    }
+
+    function render(r) {
+      let h = '';
+
+      // Enemy
+      h += `<div class="section"><div class="section-title">ENEMY: ${r.enemy.join(', ')}</div>`;
+      if (r.badges.length) h += `<div class="badges">${r.badges.map(b => {
+        let cls = '';
+        if (b==='HEAL'||b==='TANKY') cls='green';
+        else if (b==='DIVE'||b==='SQUISHY') cls='red';
+        else if (b==='CC'||b==='2+ TANKS') cls='purple';
+        else if (b==='POKE') cls='yellow';
+        return `<span class="badge ${cls}">${b}</span>`;
+      }).join('')}</div>`;
+      if (r.nPhys>=3) h += `<p class="dmg-info">3+ Physical. Build Blade Armor.</p>`;
+      if (r.nMagic>=3) h += `<p class="dmg-info">3+ Magic. Build Athena's Shield.</p>`;
+      if (r.hasTrueDmg) h += `<p class="dmg-info">True damage present. Build HP, not armor.</p>`;
+      h += '</div>';
+
+      // Role picks
+      const roles = [['roam','ROAM'],['exp','EXP LANE'],['jungle','JUNGLE'],['mid','MID LANE'],['gold','GOLD LANE']];
+      h += '<div class="section"><div class="section-title">RECOMMENDED PICKS</div>';
+      roles.forEach(([key,label]) => {
+        const picks = r.rolePicks[key] || [];
+        if (!picks.length) return;
+        h += `<div class="role-section"><div class="role-name">${label}</div>`;
+        picks.forEach((p,i) => {
+          h += `<div class="pick"><span class="pick-rank">${i+1}.</span><span class="pick-hero">${p.hero}</span><div class="pick-reason">${p.reason}</div></div>`;
+        });
+        const items = r.items[key] || [];
+        if (items.length) {
+          h += `<div class="items-row">Build: ${items.join(' › ')}</div>`;
+          if (key==='roam' && r.itemsGuide.some(g=>g.includes('anti-heal'))) h += `<div class="must-buy">MUST BUY: Dominance Ice (anti-heal)</div>`;
+          if (key==='gold' && r.nPhys>=3) h += `<div class="must-buy">MUST BUY: Wind of Nature</div>`;
+        }
+        h += '</div>';
+      });
+      h += '</div>';
+
+      // Synergies
+      if (r.synergies.length) {
+        h += '<div class="section"><div class="section-title">TEAM SYNERGIES</div>';
+        r.synergies.forEach(s => h += `<div class="synergy">» ${s}</div>`);
+        h += '</div>';
+      }
+
+      // Playstyle
+      const ps = r.playstyle;
+      h += '<div class="section"><div class="section-title">PLAYSTYLE GUIDE</div>';
+      if (ps.early.length) h += `<div class="early"><b>EARLY GAME:</b></div>${ps.early.map(t=>`<div class="tip-row">${t}</div>`).join('')}`;
+      if (ps.mid.length) h += `<div class="mid-game"><b>MID GAME:</b></div>${ps.mid.map(t=>`<div class="tip-row">${t}</div>`).join('')}`;
+      if (ps.late.length) h += `<div class="late"><b>LATE GAME:</b></div>${ps.late.map(t=>`<div class="tip-row">${t}</div>`).join('')}`;
+      if (ps.wincon.length) h += `<div class="section-title" style="margin-top:8px">WIN CONDITION</div>${ps.wincon.map(t=>`<div class="wincon">▸ ${t}</div>`).join('')}`;
+      if (ps.danger.length) h += `<div class="section-title" style="margin-top:8px;color:#ff5555">DANGERS</div>${ps.danger.map(t=>`<div class="danger">⚠ ${t}</div>`).join('')}`;
+      h += '</div>';
+
+      // Counter tips
+      if (r.counterTips.length) {
+        h += '<div class="section"><div class="section-title">SPECIFIC COUNTER TIPS</div>';
+        r.counterTips.forEach(t => {
+          h += `<div style="margin-bottom:8px"><div class="counter-hero">vs ${t.hero}</div>`;
+          h += `<div class="counter-picks">Pick: ${t.counters.join(', ')}</div>`;
+          h += `<div class="counter-strategy">${t.strategy}</div></div>`;
+        });
+        h += '</div>';
+      }
+
+      // Items guide
+      if (r.itemsGuide.length) {
+        h += '<div class="section"><div class="section-title">ITEMIZATION</div>';
+        r.itemsGuide.forEach(g => h += `<div class="item-hint">▸ ${g}</div>`);
+        h += '</div>';
+      }
+
+      document.getElementById('results').innerHTML = h;
+    }
+
+    // Enter key analyzes
+    document.querySelectorAll('input').forEach(el => {
+      el.addEventListener('keydown', e => { if (e.key==='Enter') analyze(); });
+    });
+  </script>
+</body>
+</html>
