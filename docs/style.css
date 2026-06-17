@@ -1,45 +1,89 @@
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#0f0f1a;color:#e0e0f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;min-height:100vh}
-.container{max-width:700px;margin:0 auto;padding:16px}
-h1{text-align:center;color:#00e5ff;font-size:1.6rem;margin:16px 0 4px}
-.subtitle{text-align:center;color:#666;font-size:.85rem;margin-bottom:16px}
-.input-group{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
-input{background:#1a1a2e;border:1px solid #2a2a4a;color:#fff;padding:10px 12px;border-radius:6px;font-size:15px;outline:none;transition:border .2s}
-input:focus{border-color:#00e5ff}
-input::placeholder{color:#555}
-button{background:linear-gradient(135deg,#0066cc,#0099ff);color:#fff;border:none;padding:12px;border-radius:6px;font-size:16px;font-weight:700;cursor:pointer;transition:transform .1s,opacity .2s}
-button:hover{opacity:.9}
+body{background:#0a0a14;color:#d8d8e8;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;min-height:100vh;line-height:1.5}
+.container{max-width:720px;margin:0 auto;padding:16px 14px}
+h1{text-align:center;color:#00e5ff;font-size:1.5rem;margin:12px 0 2px;letter-spacing:-.5px}
+.subtitle{text-align:center;color:#556;font-size:.82rem;margin-bottom:18px}
+.input-group{display:flex;flex-direction:column;gap:5px;margin-bottom:10px}
+input{background:#12121f;border:1px solid #252540;color:#eee;padding:11px 13px;border-radius:8px;font-size:15px;outline:none;transition:border .2s,box-shadow .2s}
+input:focus{border-color:#00e5ff;box-shadow:0 0 0 2px rgba(0,229,255,.12)}
+input::placeholder{color:#445}
+button{background:linear-gradient(135deg,#0055aa,#0088dd);color:#fff;border:none;padding:13px;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;transition:transform .08s,opacity .15s;letter-spacing:.3px}
+button:hover{opacity:.92}
 button:active{transform:scale(.98)}
-.results{margin-top:16px}
-.section{background:#14142a;border-radius:8px;padding:12px 14px;margin-bottom:10px}
-.section-title{color:#00e5ff;font-weight:700;font-size:1rem;margin-bottom:6px;border-bottom:1px solid #1e1e3a;padding-bottom:4px}
-.badges{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0}
-.badge{background:#1a1a3a;color:#5588ff;padding:2px 8px;border-radius:4px;font-size:.75rem;font-weight:600}
-.badge.red{color:#ff5555}.badge.green{color:#55cc55}.badge.yellow{color:#cccc55}.badge.purple{color:#aa66ff}
-.role-section{margin-bottom:10px}
-.role-name{color:#00e5ff;font-weight:700;font-size:.95rem;margin-bottom:4px}
-.pick{margin-bottom:6px}
-.pick-hero{color:#55cc55;font-weight:600}
-.pick-reason{color:#888;font-size:.85rem}
-.pick-rank{color:#555;font-size:.85rem;margin-right:4px}
-.items-row{color:#666;font-size:.8rem;margin-top:2px}
-.must-buy{color:#ffcc00;font-size:.8rem;margin-top:2px}
-.tip-row{color:#ccc;font-size:.85rem;margin-bottom:4px}
-.tip-highlight{color:#00cccc;font-weight:600}
-.danger{color:#ff5555;font-size:.85rem;margin-bottom:3px}
-.wincon{color:#55cc55;font-size:.85rem;margin-bottom:3px}
-.early{color:#55cc55}.mid-game{color:#cccc55}.late{color:#ff5555}
-.counter-hero{color:#fff;font-weight:600}
-.counter-strategy{color:#888;font-size:.82rem}
-.counter-picks{color:#00cccc;font-size:.82rem}
-.synergy{color:#00cccc;font-size:.85rem;margin-bottom:3px}
-.item-hint{color:#888;font-size:.85rem;margin-bottom:3px}
-.dmg-info{color:#ffcc00;font-size:.85rem}
-.empty{text-align:center;color:#444;padding:40px 0;font-size:.9rem}
+.results{margin-top:14px}
+
+/* Sections */
+.section{background:#111120;border:1px solid #1a1a30;border-radius:10px;padding:14px 16px;margin-bottom:10px}
+.section-title{color:#00e5ff;font-weight:700;font-size:.92rem;margin-bottom:8px;text-transform:uppercase;letter-spacing:.8px;display:flex;align-items:center;gap:6px}
+.section-title::before{content:'';width:3px;height:14px;background:#00e5ff;border-radius:2px;flex-shrink:0}
+
+/* Badges */
+.badges{display:flex;gap:5px;flex-wrap:wrap;margin:6px 0 4px}
+.badge{padding:3px 8px;border-radius:4px;font-size:.7rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+.badge.green{background:rgba(85,204,85,.12);color:#5c5}
+.badge.red{background:rgba(255,85,85,.12);color:#f66}
+.badge.yellow{background:rgba(200,180,50,.12);color:#cc5}
+.badge.purple{background:rgba(170,100,255,.12);color:#a6f}
+.badge.blue{background:rgba(85,136,255,.12);color:#58f}
+
+/* Damage info */
+.dmg-info{color:#ffcc00;font-size:.82rem;margin:3px 0;padding:4px 8px;background:rgba(255,200,0,.06);border-radius:4px;border-left:2px solid #cc0}
+
+/* Role picks */
+.role-section{margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid #1a1a2a}
+.role-section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.role-name{color:#00e5ff;font-weight:700;font-size:.88rem;margin-bottom:6px;text-transform:uppercase;letter-spacing:.6px}
+.pick{margin-bottom:8px;padding:6px 8px;background:rgba(255,255,255,.02);border-radius:6px;border-left:2px solid #2a2a4a;transition:border-color .2s}
+.pick:hover{border-left-color:#55cc55}
+.pick-header{display:flex;align-items:baseline;gap:6px;margin-bottom:2px}
+.pick-rank{color:#334;font-size:.78rem;font-weight:600;min-width:16px}
+.pick-hero{color:#5c5;font-weight:700;font-size:.92rem}
+.pick-reason{color:#778;font-size:.82rem;padding-left:22px}
+.items-row{color:#556;font-size:.78rem;margin-top:6px;padding:4px 8px;background:rgba(255,255,255,.02);border-radius:4px}
+.items-row b{color:#889}
+.must-buy{color:#fc0;font-size:.78rem;margin-top:4px;padding:4px 8px;background:rgba(255,200,0,.06);border-radius:4px;border-left:2px solid #c0}
+
+/* Playstyle */
+.phase{margin-bottom:8px}
+.phase-label{font-weight:700;font-size:.82rem;margin-bottom:3px;text-transform:uppercase;letter-spacing:.5px}
+.phase-label.early{color:#5c5}
+.phase-label.mid-game{color:#cc5}
+.phase-label.late{color:#f66}
+.tip-row{color:#aab;font-size:.84rem;margin-bottom:3px;padding-left:10px}
+.tip-row::before{content:'·';color:#556;margin-right:6px}
+
+/* Win condition / Danger */
+.wincon{color:#5c5;font-size:.84rem;margin-bottom:4px;padding:4px 8px;background:rgba(85,204,85,.05);border-radius:4px;border-left:2px solid #3a3}
+.danger{color:#f66;font-size:.84rem;margin-bottom:4px;padding:4px 8px;background:rgba(255,85,85,.05);border-radius:4px;border-left:2px solid #a33}
+
+/* Counter tips */
+.counter-block{margin-bottom:10px;padding:8px 10px;background:rgba(255,255,255,.02);border-radius:6px}
+.counter-block:last-child{margin-bottom:0}
+.counter-hero{color:#eee;font-weight:700;font-size:.88rem;margin-bottom:3px}
+.counter-picks{color:#0cc;font-size:.8rem;margin-bottom:2px}
+.counter-picks b{color:#0ee}
+.counter-strategy{color:#778;font-size:.8rem;line-height:1.45}
+
+/* Synergy */
+.synergy{color:#0cc;font-size:.84rem;margin-bottom:4px;padding:4px 8px;background:rgba(0,200,200,.05);border-radius:4px}
+
+/* Item hints */
+.item-hint{color:#889;font-size:.82rem;margin-bottom:3px;padding-left:10px}
+.item-hint::before{content:'›';color:#556;margin-right:6px}
+
+/* Autocomplete */
 .autocomplete-wrapper{position:relative}
-.autocomplete-list{display:none;position:absolute;top:100%;left:0;right:0;background:#1a1a2e;border:1px solid #2a2a4a;border-top:none;border-radius:0 0 6px 6px;max-height:260px;overflow-y:auto;z-index:200;scrollbar-width:thin;scrollbar-color:#2a2a4a transparent}
+.autocomplete-list{display:none;position:absolute;top:100%;left:0;right:0;background:#15152a;border:1px solid #252540;border-top:none;border-radius:0 0 8px 8px;max-height:260px;overflow-y:auto;z-index:200;scrollbar-width:thin;scrollbar-color:#252540 transparent}
 .autocomplete-list.show{display:block}
-.ac-item{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;cursor:pointer;transition:background .15s}
-.ac-item:hover,.ac-item.active{background:#22224a}
-.ac-name{color:#e0e0f0;font-size:14px}
-.ac-role{color:#fff;font-size:10px;font-weight:700;padding:2px 6px;border-radius:3px;text-transform:uppercase;letter-spacing:.5px}
+.ac-item{display:flex;justify-content:space-between;align-items:center;padding:9px 13px;cursor:pointer;transition:background .12s}
+.ac-item:hover,.ac-item.active{background:#1c1c38}
+.ac-name{color:#d8d8e8;font-size:14px}
+.ac-role{color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;text-transform:uppercase;letter-spacing:.5px}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:#252540;border-radius:3px}
+
+/* Empty state */
+.empty{text-align:center;color:#334;padding:40px 0;font-size:.88rem}

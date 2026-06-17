@@ -290,65 +290,65 @@ const ITEM_RECOMMENDATIONS = {
 };
 
 const COUNTER_KNOWLEDGE = {
-  fanny:["Khufra cancels cables. Franco hooks mid-flight. Nana Molina blocks.","khufra","minsitthar","franco"],
-  ling:["Khufra S2 stops wall jumps. Aurora freezes his landing.","khufra","minsitthar","aurora"],
-  hayabusa:["Minsitthar traps him. Saber ults him on reappear.","minsitthar","khufra","saber"],
-  lancelot:["Anti-dash stops I-frames. Minsitthar ult traps reset.","khufra","minsitthar","ruby"],
-  benedetta:["Anti-dash makes her useless. Valir pushes away.","khufra","minsitthar","valir"],
-  gusion:["Anti-dash. Nana Molina blocks daggers. Saber ults mid-combo.","khufra","minsitthar","saber"],
-  chou:["Minsitthar stops escape. Diggie ult negates CC. Ruby out-sustains.","minsitthar","diggie","ruby"],
-  esmeralda:["True damage > shield. Baxia reduces shield gain.","dyrroth","cici","karrie"],
-  uranus:["True damage melts HP. Baxia anti-heal.","thamuz","dyrroth","karrie"],
-  atlas:["DIGGIE = hard counter. His ult = useless. Valir pushes mid-ult.","diggie","valir","franco"],
-  tigreal:["Same as Atlas. Diggie best counter.","diggie","valir","nana"],
-  estes:["Baxia reduces heal. True damage ignores heal. Burst him.","baxia","lunox","kadita"],
-  khufra:["Ranged mages with no dash. Avoid blinking near him.","valir","kagura","lylia"],
-  kaja:["Diggie ult removes suppression. Lylia ult saves.","diggie","rafaela","lylia"],
-  claude:["Anti-dash. Eudora stun + burst. Saber ults before curl.","khufra","minsitthar","saber"],
-  wanwan:["Point-click CC. Franco hook ignores jump.","franco","kaja","aurora"],
-  beatrix:["No escape. Any dive assassin kills her.","fanny","ling","hayabusa"],
-  layla:["Free kill for any assassin. No escape.","fanny","ling","hayabusa"],
-  natan:["CC lock him. Valir pushes away.","franco","kaja","valir"],
-  lunox:["CC lock before chaos mode. Burst > light ult.","saber","eudora","aurora"],
-  lesley:["Zero escape. Any assassin.","fanny","ling","hayabusa"],
-  valentina:["Saber ults instantly. Nana Molina.","saber","nana","kagura"],
-  kagura:["Burst + point-click CC. Don't chase.","saber","eudora","franco"],
-  lylia:["Burst before she stacks orbs. Weak early.","saber","kadita","eudora"],
-  ixia:["No escape. Dive assassins kill before passive stacks.","fanny","ling","hayabusa"],
-  gloo:["Valir pushes him off. True damage + anti-heal kills him.","valir","cici","karrie"],
-  floryn:["Baxia anti-heal. True damage ignores heal.","baxia","lunox","karrie"],
-  gatotkaca:["Diggie ult cleanses taunt. True damage shreds him.","diggie","cici","karrie"],
-  granger:["Low mobility. Dive before reload.","fanny","ling","hayabusa"],
-  guinevere:["Anti-dash stops jump. Khufra/Minsitthar hard counter.","khufra","minsitthar","diggie"],
-  hanabi:["Shield reflects basics. CC lock after shield breaks.","khufra","atlas","aurora"],
-  julian:["Anti-dash stops engage. Saber ults mid-combo.","khufra","minsitthar","saber"],
-  karina:["Nana Molina + Diggie ult deny resets. CC lock before reset.","diggie","nana","saber"],
-  khaleed:["Baxia anti-heal. True damage > sustain.","baxia","karrie","cici"],
-  kimmy:["No escape. Fanny kills instantly.","fanny","ling","hayabusa"],
-  leomord:["Valir pushes away. Kite during ult.","valir","cici","karrie"],
-  moskov:["No escape. Fanny/Ling kill before stacks.","fanny","ling","hayabusa"],
-  nolan:["Anti-dash stops resets. Saber ults.","khufra","minsitthar","saber"],
-  phoveus:["Don't pick dash heroes. Ranged poke destroys.","diggie","valir","karrie"],
-  suyou:["Anti-dash stops engages. Poke in ranged form.","khufra","minsitthar","ruby"],
-  bruno:["No escape. Any assassin kills. Bait ult knockback first.","fanny","ling","hayabusa"],
-  aamon:["Invisibility only defense. Diggie reveals. Saber ults on sight.","diggie","saber","nana"],
-  arlott:["Ruby CC+heal out-sustains. Cici pokes safely.","ruby","cici","esmeralda"],
-  aulus:["Kite + burst before he stacks passive.","cici","benedetta","esmeralda"],
-  badang:["Diggie ult + Valir push counter hard.","diggie","valir","khufra"],
-  bane:["Mobile mages dodge ult easily.","kagura","lylia","nana"],
-  chip:["Franco hooks during portal setup. Diggie counters ganks.","diggie","franco","valir"],
-  yi_sun_shin:["Low close-range defense. Dive before ult.","fanny","ling","hayabusa"],
-  zhuxin:["Burst mages outrange. Saber deletes instantly.","saber","eudora","nana"],
-  vale:["Low mobility. Point-click assassins kill him.","saber","eudora","aurora"],
-  minotaur:["Diggie ult counters AoE knockup. Valir pushes away.","diggie","valir","nana"],
-  barats:["True damage. Valir pushes. Franco hooks before stacks.","cici","karrie","valir"],
-  hylos:["HP-based damage. Karrie DHS + true damage.","karrie","lunox","cici"],
-  belerick:["True damage ignores passive reflect. Range him.","karrie","lunox","dyrroth"],
-  grock:["Valir pushes from walls. Cici % damage.","valir","cici","ruby"],
-  johnson:["Valentina steals car. Minsitthar traps landing.","valentina","minsitthar","franco"],
-  martis:["Burst him early. CC lock before ult resets.","saber","eudora","aurora"],
-  thamuz:["Kite him. No gap closer.","benedetta","cici","valir"],
-  dyrroth:["Dodge S2. Sustain through combo. Kite after burst.","ruby","esmeralda","cici"],
+  fanny:["Khufra S2 cancels her cables mid-flight — she falls helplessly. Franco hooks her during cable travel. Nana Molina blocks cable paths, forcing her to re-route. Build Blade Armor to reflect her burst damage.","khufra","minsitthar","franco"],
+  ling:["Khufra S2 creates a wall that stops wall jumps — he falls and is vulnerable. Aurora freezes him the moment he lands. Minsitthar ult traps him in place. Deny his blue buff — he becomes useless without energy.","khufra","minsitthar","aurora"],
+  hayabusa:["Minsitthar ult creates a zone he can't escape from. Saber point-click ults him when he reappears from shadows. Khufra S2 cancels his shadow dashes. CC him right after he uses ult — he's stationary for 1s.","minsitthar","khufra","saber"],
+  lancelot:["Any anti-dash stops his infinite I-frame combos. Minsitthar ult traps his reset target. Ruby AoE hits him during dash. He's weakest before level 4 — camp him early.","khufra","minsitthar","ruby"],
+  benedetta:["Anti-dash makes her useless — she can't dash, can't charge, can't escape. Valir pushes her away during charge animation. Khufra S2 bounces her every dash attempt.","khufra","minsitthar","valir"],
+  gusion:["Anti-dash stops his daggers from returning. Nana Molina blocks his dagger landing spots. Saber ults him mid-combo before he can pick up daggers. Burst him instantly — he's paper-thin.","khufra","minsitthar","saber"],
+  chou:["Minsitthar stops his kick-back escape route. Diggie ult makes his entire combo useless — cleanses CC. Ruby out-sustains his burst and heals through his damage. Watch for his flicker-ult — stay behind your tank.","minsitthar","diggie","ruby"],
+  esmeralda:["True damage ignores her shield entirely — Karrie passive shreds her. Baxia reduces her shield gain by 50%. Cici %HP damage melts her regardless of shield stacking. Never pick magic damage vs her — she heals from it.","dyrroth","cici","karrie"],
+  uranus:["True damage ignores his passive HP regen. Baxia passive reduces all his healing. Dominance Ice cuts his sustain in half. He's tanky but has no damage — ignore him and kill his team first.","thamuz","dyrroth","karrie"],
+  atlas:["DIGGIE IS HIS HARD COUNTER — his ult does nothing if Diggie ult is active. Valir pushes him away mid-ultimate animation. Franco hooks him during his setup. Never clump together — his 5-man ult = instant team wipe.","diggie","valir","franco"],
+  tigreal:["Same as Atlas — Diggie ult cleanses his push-pull combo. Valir pushes him away before he can set up. Nana Molina blocks his engage path. He's slow and predictable — ward his rotations.","diggie","valir","nana"],
+  estes:["Baxia reduces his healing by 50% — core pick. True damage (Karrie, Lunox) ignores his healing entirely. Burst him FIRST in every fight — he's squishy and immobile. Buy anti-heal items immediately.","baxia","lunox","kadita"],
+  khufra:["Ranged mages with NO dash counter him — Valir, Kagura, Lylia. Never blink or dash near him — his S2 bounces you. He's useless from range — poke him down before he can engage.","valir","kagura","lylia"],
+  kaja:["Diggie ult cleanses his suppression — completely negates his pick. Lylia ult saves whoever he suppresses. He's squishy — burst him before he can drag your teammate into his team.","diggie","rafaela","lylia"],
+  claude:["Anti-dash stops his S2 curl escape. Eudora point-click stun + burst kills him before he can ult. Saber ults him during his S2 animation when he's stationary. He's useless without Demon Hunter Sword.","khufra","minsitthar","saber"],
+  wanwan:["Franco hook ignores her jump — pulls her straight. Kaja point-click ult drags her out. Aurora freeze before she can activate ult. She needs 5 weakness hits — don't let her stack them on you.","franco","kaja","aurora"],
+  beatrix:["She has ZERO escape abilities. Any dive assassin (Fanny, Ling, Hayabusa) kills her instantly. Bait her ult first — she's defenseless during cooldown. Focus her in teamfights — she's the highest damage threat.","fanny","ling","hayabusa"],
+  layla:["Zero mobility, zero escape — the easiest kill in the game. Any assassin one-shots her. She scales hard but is useless early. Camp her in lane — she can't run away from anything.","fanny","ling","hayabusa"],
+  natan:["CC lock him — he needs proximity to deal damage. Valir pushes him out of range. His damage falls off if he can't stack passive. Franco hook + burst = free kill every time.","franco","kaja","valir"],
+  lunox:["CC lock her BEFORE she enters chaos mode — once she's in light ult she's invincible. Burst damage > her light ult healing. She's squishy — one stun = death. Don't let her stack orbs freely.","saber","eudora","aurora"],
+  lesley:["Zero escape skills. Any assassin kills her in one combo. Twilight Armor caps her crit damage at 900. She's invisible early game — buy detection wards.","fanny","ling","hayabusa"],
+  valentina:["Saber point-click ults her instantly before she can copy. Nana Molina blocks her escape route. She copies your ult — don't pick AoE ults when she's in game. She's weakest before level 4.","saber","nana","kagura"],
+  kagura:["Burst + point-click CC kills her. Don't chase her — she escapes easily with S2. Franco hooks her during umbrella animation. She's strongest in mid-game — end early or scale past her.","saber","eudora","franco"],
+  lylia:["Burst her before she stacks 5 orbs — she's weak early. Saber ults her before she can ult to safety. She's immobile — any CC kills her. Deny her blue buff — she needs mana badly.","saber","kadita","eudora"],
+  ixia:["No escape abilities at all. Dive assassins kill her before she can stack passive. She needs time to ramp up — end fights quickly. Focus her first in every teamfight.","fanny","ling","hayabusa"],
+  gloo:["Valir pushes him off his attach target — completely negates his ult. True damage ignores his shield. Anti-heal (Dominance Ice) cuts his sustain. Cici %HP damage shreds him from range.","valir","cici","karrie"],
+  floryn:["Baxia reduces her global healing by 50%. True damage ignores her heal entirely. She's immobile — any CC kills her. Burst her first — she's the backbone of their sustain.","baxia","lunox","karrie"],
+  gatotkaca:["Diggie ult cleanses his taunt — completely negates his engage. True damage shreds his high HP pool. Cici kites him from range. Don't stand in his S2 — it knocks up everyone.","diggie","cici","karrie"],
+  granger:["Low mobility marksman — dive him before he can reload his ult. He's weak in close range — assassins destroy him. Bait his ult then engage. He needs 6 bullets to ult — waste his ammo.","fanny","ling","hayabusa"],
+  guinevere:["Her jump + knockup combo is her only engage. Khufra S2 bounces her jump. Minsitthar ult traps her mid-jump. Diggie ult cleanses her knockup. Don't group up — her ult hits AoE.","khufra","minsitthar","diggie"],
+  hanabi:["Her shield reflects basic attacks — don't hit her when shielded. CC lock her AFTER shield breaks — she's defenseless. Her damage comes from basic attacks — buy Blade Armor. She has no escape.","khufra","atlas","aurora"],
+  julian:["His enhanced skills reset on hits — anti-dash stops his engage. Saber ults him mid-combo before he can reset. Ruby CC locks him down. He's strongest at level 3 — be careful early.","khufra","minsitthar","saber"],
+  karina:["She resets on kills — DON'T die near her. Nana Molina + Diggie ult deny her reset window. CC lock her before she can kill your teammate. She's weak to burst — one stun = death.","diggie","nana","saber"],
+  khaleed:["Baxia reduces his sand healing by 50%. True damage ignores his sustain. Cici %HP damage kites him. He's immobile in sand form — poke him from range. He heals in ult — burst him after.","baxia","karrie","cici"],
+  kimmy:["She moves while attacking but has zero escape. Fanny kills her instantly from range. Avoid standing in her S1 spray — it does massive DoT. She's squishy — one CC = death.","fanny","ling","hayabusa"],
+  leomord:["Valir pushes him away during horse mode — completely negates his ult power spike. Cici kites him from range. Kite him during ult — he's fast but predictable. He's weak without his horse.","valir","cici","karrie"],
+  moskov:["He pierces through targets — don't stand in a line. Fanny/Ling kill him before he can stack attack speed. He has zero escape — any assassin destroys him. Spread out in teamfights.","fanny","ling","hayabusa"],
+  nolan:["He dashes through enemies for resets — anti-dash stops his chain. Saber point-click ults him before he can dash. He's squishy — one CC = death. CC him after his first dash.","khufra","minsitthar","saber"],
+  phoveus:["DON'T pick dash heroes against him — he punishes mobility. Ranged poke (Valir, Karrie) destroys him from safe distance. He's weak to sustained damage — kite him. Franco hooks him out of position.","diggie","valir","karrie"],
+  suyou:["He switches between ranged and melee — anti-dash stops his engages. Poke him in ranged form before he can switch. Ruby CC locks him down. He's weakest in melee form — keep your distance.","khufra","minsitthar","ruby"],
+  bruno:["No escape skills at all. Any assassin kills him easily. Bait his ult knockback first — then he's defenseless. He needs to kick the ball to deal damage — dodge it. He's strong early but falls off.","fanny","ling","hayabusa"],
+  aamon:["His invisibility is his only defense — Diggie ult reveals him. Saber ults him on sight. Nana Molina blocks his escape route. He's squishy — one CC = death. He needs to hit shards to go invisible.","diggie","saber","nana"],
+  arlott:["Ruby's CC + heal out-sustains his combos. Cici pokes him safely from range. His combos need precise timing — interrupt him. He's weak to sustained damage — don't burst, outlast him.","ruby","cici","esmeralda"],
+  aulus:["He needs to stack his passive — burst him before he stacks. Cici kites him from range. Benedetta dodges his combos. He's weak early — camp him in lane before he gets items.","cici","benedetta","esmeralda"],
+  badang:["His wall trap is devastating in narrow spaces — fight in open areas. Diggie ult negates his wall stun. Valir pushes him away from walls. He's predictable — dodge his S2 dash.","diggie","valir","khufra"],
+  bane:["His skills are telegraphed — dodge them easily. Mobile mages (Kagura, Lylia) avoid his ult. Nana Molina blocks his engage. He's weak to sustained damage — kite him after his burst.","kagura","lylia","nana"],
+  chip:["Franco hooks him during portal setup — stops his team rotation. Diggie ult counters his ganks. He's squishy — burst him first. His portals are visible — predict where his team will appear.","diggie","franco","valir"],
+  yi_sun_shin:["He has a global ult but low close-range defense. Dive him before he can ult. He's weak in melee — assassins destroy him. Ward his positions — his ult reveals map but leaves him exposed.","fanny","ling","hayabusa"],
+  zhuxin:["Burst mages outrange her paper talismans. Saber deletes her instantly. She's squishy — one CC = death. She needs time to set up — rush her before she can place talismans.","saber","eudora","nana"],
+  vale:["Low mobility mage — point-click assassins kill him. He's strongest with combo setup — interrupt him. Saber ults him on sight. He's useless if his knockup misses — bait it then engage.","saber","eudora","aurora"],
+  minotaur:["Diggie ult counters his AoE knockup entirely. Valir pushes him away before he can set up. Nana Molina blocks his engage path. His rage mode is dangerous — CC him before it activates.","diggie","valir","nana"],
+  barats:["True damage ignores his tankiness. Valir pushes him away before he can stack. Franco hooks him before he gets big. He's weak early — camp him before he stacks his passive.","cici","karrie","valir"],
+  hylos:["HP-based damage (Karrie DHS) shreds him. True damage ignores his defense. He's slow and predictable — kite him. He burns mana fast — force extended fights to drain him.","karrie","lunox","cici"],
+  belerick:["True damage ignores his passive reflect damage. Range him — his reflect only works in melee. Karrie passive shreds him. He's immobile — any CC locks him down.","karrie","lunox","dyrroth"],
+  grock:["Valir pushes him away from walls — removes his passive speed boost. Cici %HP damage shreds his HP pool. He's strong near walls — fight in open areas. He's predictable — dodge his S1 charge.","valir","cici","ruby"],
+  johnson:["Valentina steals his car ult — drives into his own team. Minsitthar traps his landing zone. Franco hooks him mid-drive. His car path is predictable — dodge sideways. He's useless without ult.","valentina","minsitthar","franco"],
+  martis:["Burst him early — he's weak before level 4. CC lock him before he can ult reset. Eudora stun + burst kills him instantly. His ult resets on kills — don't let him get the first kill.","saber","eudora","aurora"],
+  thamuz:["Kite him — he has no gap closer. He's strong in sustained fights — burst him quickly. Dyrroth out-damages him in short trades. He's weak to %HP damage — Cici shreds him.","benedetta","cici","valir"],
+  dyrroth:["Dodge his S2 — that's his main burst. Sustain through his combo — he falls off after. Ruby out-heals his damage. Cici pokes him from range safely. He's weak after his S2 is on cooldown.","ruby","esmeralda","cici"],
 };
 
 function analyzeTeam(heroes) {
@@ -468,10 +468,17 @@ function generatePlaystyle(heroes, picks, a) {
   const ourEarly = ourPicks.filter(h=>earlyHeroes.has(h));
   const enemyEarly = heroes.filter(h=>earlyHeroes.has(h));
 
-  if (ourEarly.length&&!enemyEarly.length) g.early.push("YOU WIN EARLY. Invade their jungle. Force fights.");
-  else if (enemyEarly.length&&!ourEarly.length) g.early.push("THEY WIN EARLY. Play safe. Don't contest first turtle.");
-  else if (ourEarly.length&&enemyEarly.length) g.early.push("EARLY GAME IS EVEN. Focus on farm.");
-  else g.early.push("BOTH SCALE. Farm efficiently. Look for picks.");
+  if (ourEarly.length&&!enemyEarly.length) {
+    g.early.push("YOU WIN EARLY. Your heroes are stronger before level 4. Invade their jungle, steal buffs, and force fights at every objective.");
+    g.early.push(`Your early powerhouses: ${ourEarly.slice(0,2).map(h=>h.replace(/\b\w/g,c=>c.toUpperCase())).join(', ')} — use them to snowball.`);
+  } else if (enemyEarly.length&&!ourEarly.length) {
+    g.early.push("THEY WIN EARLY. Play safe, freeze lane near your tower, and don't contest the first turtle. Survive to mid-game.");
+    g.early.push(`Avoid fighting: ${enemyEarly.slice(0,2).map(h=>h.replace(/\b\w/g,c=>c.toUpperCase())).join(', ')} until you have your core items.`);
+  } else if (ourEarly.length&&enemyEarly.length) {
+    g.early.push("EARLY GAME IS EVEN. Focus on farming efficiently. First turtle depends on which team rotates faster — communicate with your jungle.");
+  } else {
+    g.early.push("BOTH TEAMS SCALE. Farm safely, look for pick opportunities on isolated enemies, and avoid full teamfights until you have items.");
+  }
 
   const pickoffHeroes = new Set(["franco","saber","selena","kaja","natalia","helcurt","aamon","karina","nolan"]);
   const teamfightHeroes = new Set(["atlas","tigreal","khufra","minsitthar","odette","pharsa","yve","aurora","carmilla","gatotkaca","minotaur"]);
@@ -479,46 +486,62 @@ function generatePlaystyle(heroes, picks, a) {
   const ourPickoff = ourPicks.filter(h=>pickoffHeroes.has(h));
   const ourTeamfight = ourPicks.filter(h=>teamfightHeroes.has(h));
 
-  if (ourPickoff.length&&!enemyTeamfight.length) g.mid.push("ROTATE AS 5. Look for picks on isolated enemies.");
-  else if (ourTeamfight.length&&!ourPickoff.length) g.mid.push("GROUP UP. Force 5v5 fights around objectives.");
-  else g.mid.push("PLAY FOR PICKS. Rotate as 2-3. Catch them rotating.");
+  if (ourPickoff.length&&!enemyTeamfight.length) {
+    g.mid.push("ROTATE AS 2-3 and look for picks on isolated enemies. Don't show on map — create pressure through fog of war.");
+    g.mid.push(`Your pickers: ${ourPickoff.slice(0,2).map(h=>h.replace(/\b\w/g,c=>c.toUpperCase())).join(', ')} — ambush them before objectives.`);
+  } else if (ourTeamfight.length&&!ourPickoff.length) {
+    g.mid.push("GROUP UP as 5 and force teamfights around Lord/Turtle. Your AoE combos will win extended fights.");
+    g.mid.push(`Your teamfight ults: ${ourTeamfight.slice(0,2).map(h=>h.replace(/\b\w/g,c=>c.toUpperCase())).join(', ')} — coordinate your engages.`);
+  } else {
+    g.mid.push("PLAY FOR PICKS. Rotate in pairs, catch enemies rotating to objectives. Don't force 5v5 unless you have positional advantage.");
+  }
 
   const scalers = new Set(["karrie","lunox","claude","aldous","cecilion","moskov","bruno","granger","kagura","lylia","julian","zhuxin"]);
   const ourScalers = ourPicks.filter(h=>scalers.has(h));
   const enemyScalers = heroes.filter(h=>scalers.has(h));
-  if (ourScalers.length&&!enemyScalers.length) g.late.push("YOU OUTSCALE. Delay game to late.");
-  else if (enemyScalers.length&&!ourScalers.length) g.late.push("YOU NEED TO END EARLY. Don't let it reach 15 min.");
-  else if (ourScalers.length&&enemyScalers.length) g.late.push("BOTH SCALE. Better teamfight wins.");
-  else g.late.push("LATE GAME IS EVEN. Lord control decides.");
+  if (ourScalers.length&&!enemyScalers.length) {
+    g.late.push(`YOU OUTSCALE. Your ${ourScalers[0].replace(/\b\w/g,c=>c.toUpperCase())} becomes a monster late game. Play safe, farm efficiently, and delay the game.`);
+    g.late.push("Win teamfights at 15+ min when your carries are fully itemized. Don't throw early leads.");
+  } else if (enemyScalers.length&&!ourScalers.length) {
+    g.late.push(`YOU NEED TO END EARLY. Enemy ${enemyScalers[0].replace(/\b\w/g,c=>c.toUpperCase())} will outscale you. Take Lord, siege base, close the game before 15 min.`);
+    g.late.push("Force fights while you're ahead. Don't let the game drag — every minute favors them.");
+  } else if (ourScalers.length&&enemyScalers.length) {
+    g.late.push("BOTH TEAMS SCALE. The better teamfight composition wins late. Focus on positioning and objective control.");
+  } else {
+    g.late.push("LATE GAME IS EVEN. Winning depends on Lord control, pickoffs, and which team makes fewer mistakes.");
+  }
 
   const wc = [];
   heroes.forEach(h => {
-    if (h==="fanny") { wc.push("KILL FANNY BEFORE Lv4. Invade her blue."); wc.push("Stick together after Lv4."); }
-    if (h==="ling") wc.push("DENY LING'S BLUE BUFF.");
-    if (h==="estes") wc.push("PICK OFF ESTES FIRST. Buy anti-heal immediately.");
-    if (h==="atlas") wc.push("DON'T CLUMP. Atlas ult = instant wipe.");
-    if (h==="claude") wc.push("CC CLAUDE WHEN HE CURLS.");
-    if (h==="beatrix") wc.push("DIVE BEATRIX. She has no escape.");
-    if (h==="phoveus") wc.push("DON'T DASH. Pick ranged heroes.");
+    if (h==="fanny") { wc.push("KILL FANNY BEFORE LEVEL 4. Invade her blue buff — she's useless without energy after the nerf."); wc.push("After level 4, stick as 5. Don't let her pick off isolated targets with cable combos."); }
+    if (h==="ling") { wc.push("DENY LING'S BLUE BUFF. He's energy-dependent — no blue = no damage. Ward his jungle."); wc.push("CC him when he lands from walls — he's stationary for 0.5s. That's your window."); }
+    if (h==="estes") { wc.push("PICK OFF ESTES FIRST in every fight. He's the engine of their sustain — kill him and the rest crumble."); wc.push("Buy anti-heal items by minute 5. Dominance Ice, Sea Halberd, or Necklace of Durance."); }
+    if (h==="atlas") { wc.push("NEVER CLUMP TOGETHER. Atlas 5-man ult = instant team wipe. Spread out and bait his engage."); wc.push("Diggie is your best friend here — his ult makes Atlas completely useless."); }
+    if (h==="claude") { wc.push("CC CLAUDE WHEN HE CURLS (S2). He's stationary during the animation — that's your window to burst."); }
+    if (h==="beatrix") { wc.push("DIVE BEATRIX. She has no escape skills — any assassin kills her. Bait her ult first, then engage."); }
+    if (h==="phoveus") { wc.push("DON'T DASH AROUND PHOVEUS. He punishes mobility with his passive. Pick ranged heroes and poke him down."); }
+    if (h==="moskov") { wc.push("DON'T STAND IN A LINE. Moskov pierces through targets — spread out in teamfights."); }
   });
   ourPicks.forEach(h => {
-    if (h==="diggie"&&heroes.some(e=>["atlas","tigreal","johnson"].includes(e))) wc.push("FORCE FIGHTS. Enemy engage useless with Diggie ult.");
-    if (h==="khufra"&&heroes.some(e=>["fanny","ling","lancelot"].includes(e))) wc.push("STICK WITH KHUFRA. Protects backline.");
-    if (h==="karrie"&&heroes.some(e=>SUSTAIN_TANKS.has(e))) wc.push("PROTECT KARRIE. Tank killer. DHS melts them.");
-    if (h==="franco") wc.push("FRANCO HOOK WINS GAMES. Hook carry before objectives.");
+    if (h==="diggie"&&heroes.some(e=>["atlas","tigreal","johnson"].includes(e))) wc.push("FORCE FIGHTS. Enemy's main engage is completely useless with your Diggie ult — abuse this advantage.");
+    if (h==="khufra"&&heroes.some(e=>["fanny","ling","lancelot"].includes(e))) wc.push("STICK WITH KHUFRA. His S2 cancels their mobility — he protects your backline from dives.");
+    if (h==="karrie"&&heroes.some(e=>SUSTAIN_TANKS.has(e))) wc.push("PROTECT KARRIE. She's your tank killer — DHS + passive shreds their frontline in 3 seconds.");
+    if (h==="franco") wc.push("FRANCO HOOK WINS GAMES. Hook their carry before objectives — a 4v5 fight is an easy win.");
   });
   g.wincon = wc.slice(0,4).length ? wc.slice(0,4) : ["PLAY YOUR STRENGTHS."];
 
   const dangers = [];
   heroes.forEach(h => {
-    if (["atlas","tigreal"].includes(h)) dangers.push("Don't clump — AoE cc = instant teamwipe.");
-    if (h==="franco") dangers.push("Don't stand still — Franco hook ends your life.");
-    if (["fanny","ling","hayabusa","lancelot"].includes(h)) dangers.push(`Don't roam alone — ${h} will pick you off.`);
-    if (["estes","rafaela","floryn","angela"].includes(h)) dangers.push("BUY ANTI-HEAL immediately.");
-    if (["karrie","lunox","dyrroth","alpha"].includes(h)) dangers.push("Enemy has TRUE DAMAGE. Build HP, not armor.");
-    if (h==="phoveus") dangers.push("Phoveus punishes dashes — don't pick dash heroes.");
+    if (["atlas","tigreal"].includes(h)) dangers.push("Don't clump together — their AoE CC ult can catch 3-4 people and instant-wipe your team. Spread out and fight in open areas.");
+    if (h==="franco") dangers.push("Don't stand still or walk in straight lines — Franco hook is a free kill. Always juke and keep moving. Ward bush corners.");
+    if (["fanny","ling","hayabusa","lancelot"].includes(h)) dangers.push(`Don't roam alone — ${h.replace(/\b\w/g,c=>c.toUpperCase())} will find you and one-shot you. Stick with your team after level 4.`);
+    if (["estes","rafaela","floryn","angela"].includes(h)) dangers.push("BUY ANTI-HEAL ITEMS IMMEDIATELY. Their healer makes your damage useless without anti-heal. Dominance Ice, Sea Halberd, or Necklace of Durance by minute 5.");
+    if (["karrie","lunox","dyrroth","alpha"].includes(h)) dangers.push("Enemy has TRUE DAMAGE — armor and magic resist won't help. Build HP items instead. Blade Armor and Athena's Shield are useless here.");
+    if (h==="phoveus") dangers.push("Phoveus punishes every dash and blink — don't pick dash-heavy heroes against him. Ranged poke heroes destroy him from safe distance.");
+    if (h==="esmeralda") dangers.push("Esmeralda STEALS your shields and heals from magic damage — never pick magic heroes against her. True damage and physical only.");
+    if (h==="moskov") dangers.push("Moskov pierces through ALL targets in a line — never stand behind your teammates. Spread out in teamfights.");
   });
-  g.danger = dangers.slice(0,4);
+  g.danger = dangers.slice(0,5);
 
   return g;
 }
@@ -526,10 +549,14 @@ function generatePlaystyle(heroes, picks, a) {
 function getSynergies(picks) {
   const synergies = [];
   const known = {
-    "Diggie+Claude":"Diggie ult protects Claude while he ults.",
-    "Khufra+Claude":"Khufra catches them, Claude kills.",
-    "Baxia+Karrie":"Anti-heal + true damage = deadly.",
-    "Franco+Saber":"Franco hooks, Saber ult = free kill.",
+    "Diggie+Claude":"Diggie ult makes Claude untargetable while he ults — he can Blazing Duet freely without being CC'd or burst down.",
+    "Khufra+Claude":"Khufra S2 catches enemies in place, then Claude curls in and shreds them with Blazing Duet.",
+    "Baxia+Karrie":"Baxia reduces enemy healing by 50%, then Karrie's true damage passive melts through their sustain.",
+    "Franco+Saber":"Franco hooks a target into your team, Saber point-click ults them — guaranteed kill before they can react.",
+    "Atlas+Aurora":"Atlas sets up a 3-5 man ult, Aurora follows with her freeze — entire enemy team is CC'd for 3+ seconds.",
+    "Diggie+Valir":"Diggie ult cleanses all CC while Valir pushes enemies away — your team is unstoppable in teamfights.",
+    "Minsitthar+Ling":"Minsitthar ult traps enemies in a zone, Ling jumps from walls and deletes them — they can't escape.",
+    "Baxia+Lunox":"Baxia anti-heal cuts their sustain, Lunox chaos form shreds tanks with true damage.",
   };
   const allPicks = ["roam","exp","jungle","mid","gold"].flatMap(r=>(picks[r]||[]).map(p=>p[0]));
   for (const [combo,desc] of Object.entries(known)) {

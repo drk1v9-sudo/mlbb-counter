@@ -59,77 +59,105 @@
     function render(r) {
       let h = '';
 
-      // Enemy
-      h += `<div class="section"><div class="section-title">ENEMY: ${r.enemy.join(', ')}</div>`;
+      // ── Enemy Team ──
+      h += `<div class="section">`;
+      h += `<div class="section-title">Enemy Team</div>`;
+      h += `<div style="color:#aab;font-size:.88rem;margin-bottom:6px">${r.enemy.join(' · ')}</div>`;
       if (r.badges.length) h += `<div class="badges">${r.badges.map(b => {
-        let cls = '';
-        if (b==='HEAL'||b==='TANKY') cls='green';
-        else if (b==='DIVE'||b==='SQUISHY') cls='red';
-        else if (b==='CC'||b==='2+ TANKS') cls='purple';
-        else if (b==='POKE') cls='yellow';
+        const cls = {HEAL:'green',TANKY:'green',DIVE:'red',SQUISHY:'red',CC:'purple','2+ TANKS':'blue',POKE:'yellow'}[b]||'';
         return `<span class="badge ${cls}">${b}</span>`;
       }).join('')}</div>`;
-      if (r.nPhys>=3) h += `<p class="dmg-info">3+ Physical. Build Blade Armor.</p>`;
-      if (r.nMagic>=3) h += `<p class="dmg-info">3+ Magic. Build Athena's Shield.</p>`;
-      if (r.hasTrueDmg) h += `<p class="dmg-info">True damage present. Build HP, not armor.</p>`;
+      const dmgNotes = [];
+      if (r.nPhys>=3) dmgNotes.push('3+ Physical damage — build Blade Armor');
+      if (r.nMagic>=3) dmgNotes.push('3+ Magic damage — build Athena\'s Shield');
+      if (r.hasTrueDmg) dmgNotes.push('True damage present — build HP items, armor won\'t help');
+      dmgNotes.forEach(d => h += `<div class="dmg-info">${d}</div>`);
       h += '</div>';
 
-      // Role picks
-      const roles = [['roam','ROAM'],['exp','EXP LANE'],['jungle','JUNGLE'],['mid','MID LANE'],['gold','GOLD LANE']];
-      h += '<div class="section"><div class="section-title">RECOMMENDED PICKS</div>';
+      // ── Recommended Picks ──
+      const roles = [['roam','Roam'],['exp','EXP Lane'],['jungle','Jungle'],['mid','Mid Lane'],['gold','Gold Lane']];
+      h += '<div class="section"><div class="section-title">Counter Picks</div>';
       roles.forEach(([key,label]) => {
         const picks = r.rolePicks[key] || [];
         if (!picks.length) return;
         h += `<div class="role-section"><div class="role-name">${label}</div>`;
         picks.forEach((p,i) => {
-          h += `<div class="pick"><span class="pick-rank">${i+1}.</span><span class="pick-hero">${p.hero}</span><div class="pick-reason">${p.reason}</div></div>`;
+          h += `<div class="pick">
+            <div class="pick-header"><span class="pick-rank">${i+1}</span><span class="pick-hero">${p.hero}</span></div>
+            <div class="pick-reason">${p.reason}</div>
+          </div>`;
         });
         const items = r.items[key] || [];
         if (items.length) {
-          h += `<div class="items-row">Build: ${items.join(' › ')}</div>`;
-          if (key==='roam' && r.itemsGuide.some(g=>g.includes('anti-heal'))) h += `<div class="must-buy">MUST BUY: Dominance Ice (anti-heal)</div>`;
-          if (key==='gold' && r.nPhys>=3) h += `<div class="must-buy">MUST BUY: Wind of Nature</div>`;
+          h += `<div class="items-row"><b>Build:</b> ${items.join(' → ')}</div>`;
+          if (key==='roam' && r.itemsGuide.some(g=>g.includes('anti-heal'))) h += `<div class="must-buy">MUST BUY: Dominance Ice — cuts enemy healing by 50%</div>`;
+          if (key==='gold' && r.nPhys>=3) h += `<div class="must-buy">MUST BUY: Wind of Nature — 2s physical immunity vs their assassins</div>`;
+          if (key==='mid' && r.nTanks>=2) h += `<div class="must-buy">MUST BUY: Divine Glaive — 40% magic penetration for tanky teams</div>`;
+          if (key==='jungle' && r.nTanks>=2) h += `<div class="must-buy">MUST BUY: Demon Hunter Sword — % HP damage shreds tanks</div>`;
         }
         h += '</div>';
       });
       h += '</div>';
 
-      // Synergies
+      // ── Synergies ──
       if (r.synergies.length) {
-        h += '<div class="section"><div class="section-title">TEAM SYNERGIES</div>';
-        r.synergies.forEach(s => h += `<div class="synergy">» ${s}</div>`);
+        h += '<div class="section"><div class="section-title">Team Synergies</div>';
+        r.synergies.forEach(s => h += `<div class="synergy">▸ ${s}</div>`);
         h += '</div>';
       }
 
-      // Playstyle
+      // ── Playstyle Guide ──
       const ps = r.playstyle;
-      h += '<div class="section"><div class="section-title">PLAYSTYLE GUIDE</div>';
-      if (ps.early.length) h += `<div class="early"><b>EARLY GAME:</b></div>${ps.early.map(t=>`<div class="tip-row">${t}</div>`).join('')}`;
-      if (ps.mid.length) h += `<div class="mid-game"><b>MID GAME:</b></div>${ps.mid.map(t=>`<div class="tip-row">${t}</div>`).join('')}`;
-      if (ps.late.length) h += `<div class="late"><b>LATE GAME:</b></div>${ps.late.map(t=>`<div class="tip-row">${t}</div>`).join('')}`;
-      if (ps.wincon.length) h += `<div class="section-title" style="margin-top:8px">WIN CONDITION</div>${ps.wincon.map(t=>`<div class="wincon">▸ ${t}</div>`).join('')}`;
-      if (ps.danger.length) h += `<div class="section-title" style="margin-top:8px;color:#ff5555">DANGERS</div>${ps.danger.map(t=>`<div class="danger">⚠ ${t}</div>`).join('')}`;
+      h += '<div class="section"><div class="section-title">Playstyle Guide</div>';
+
+      if (ps.early.length) {
+        h += `<div class="phase"><div class="phase-label early">Early Game (0–8 min)</div>`;
+        ps.early.forEach(t => h += `<div class="tip-row">${t}</div>`);
+        h += '</div>';
+      }
+      if (ps.mid.length) {
+        h += `<div class="phase"><div class="phase-label mid-game">Mid Game (8–15 min)</div>`;
+        ps.mid.forEach(t => h += `<div class="tip-row">${t}</div>`);
+        h += '</div>';
+      }
+      if (ps.late.length) {
+        h += `<div class="phase"><div class="phase-label late">Late Game (15+ min)</div>`;
+        ps.late.forEach(t => h += `<div class="tip-row">${t}</div>`);
+        h += '</div>';
+      }
+
+      if (ps.wincon.length) {
+        h += `<div style="margin-top:10px;margin-bottom:6px;color:#00e5ff;font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.5px">Win Conditions</div>`;
+        ps.wincon.forEach(t => h += `<div class="wincon">▸ ${t}</div>`);
+      }
+      if (ps.danger.length) {
+        h += `<div style="margin-top:10px;margin-bottom:6px;color:#f66;font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.5px">Danger Warnings</div>`;
+        ps.danger.forEach(t => h += `<div class="danger">⚠ ${t}</div>`);
+      }
       h += '</div>';
 
-      // Counter tips
+      // ── Specific Counter Tips ──
       if (r.counterTips.length) {
-        h += '<div class="section"><div class="section-title">SPECIFIC COUNTER TIPS</div>';
+        h += '<div class="section"><div class="section-title">How to Counter Each Hero</div>';
         r.counterTips.forEach(t => {
-          h += `<div style="margin-bottom:8px"><div class="counter-hero">vs ${t.hero}</div>`;
-          h += `<div class="counter-picks">Pick: ${t.counters.join(', ')}</div>`;
-          h += `<div class="counter-strategy">${t.strategy}</div></div>`;
+          h += `<div class="counter-block">
+            <div class="counter-hero">vs ${t.hero}</div>
+            <div class="counter-picks"><b>Best picks:</b> ${t.counters.join(', ')}</div>
+            <div class="counter-strategy">${t.strategy}</div>
+          </div>`;
         });
         h += '</div>';
       }
 
-      // Items guide
+      // ── Itemization ──
       if (r.itemsGuide.length) {
-        h += '<div class="section"><div class="section-title">ITEMIZATION</div>';
-        r.itemsGuide.forEach(g => h += `<div class="item-hint">▸ ${g}</div>`);
+        h += '<div class="section"><div class="section-title">Itemization Priority</div>';
+        r.itemsGuide.forEach(g => h += `<div class="item-hint">${g}</div>`);
         h += '</div>';
       }
 
       document.getElementById('results').innerHTML = h;
+      document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
     }
 
     // Enter key analyzes + setup autocomplete
