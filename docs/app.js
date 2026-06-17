@@ -181,7 +181,7 @@ let acIndex = -1;
 function showDropdown(inputEl, matches) {
   hideDropdown();
   if (!matches.length) return;
-  const wrapper = inputEl.closest('.autocomplete-wrapper');
+  const wrapper = inputEl.closest('.input-row');
   const list = wrapper.querySelector('.autocomplete-list');
   list.innerHTML = matches.map((m, i) =>
     `<div class="ac-item" data-key="${m.key}" data-idx="${i}">

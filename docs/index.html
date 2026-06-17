@@ -13,29 +13,34 @@
     <p class="subtitle">Enter 5 enemy heroes — get counter-picks, items, playstyle & more</p>
 
     <div class="input-group">
-      <div class="autocomplete-wrapper">
-        <input type="text" id="h1" placeholder="Hero 1 (e.g. fanny)" autocomplete="off" autofocus>
+      <div class="input-row" data-role="roam">
+        <div class="input-num n1">1</div>
+        <input type="text" id="h1" class="input-field" placeholder="Enemy Roam (e.g. atlas)" autocomplete="off" autofocus>
         <div class="autocomplete-list"></div>
       </div>
-      <div class="autocomplete-wrapper">
-        <input type="text" id="h2" placeholder="Hero 2 (e.g. atlas)" autocomplete="off">
+      <div class="input-row" data-role="exp">
+        <div class="input-num n2">2</div>
+        <input type="text" id="h2" class="input-field" placeholder="Enemy EXP Lane (e.g. chou)" autocomplete="off">
         <div class="autocomplete-list"></div>
       </div>
-      <div class="autocomplete-wrapper">
-        <input type="text" id="h3" placeholder="Hero 3 (e.g. estes)" autocomplete="off">
+      <div class="input-row" data-role="jungle">
+        <div class="input-num n3">3</div>
+        <input type="text" id="h3" class="input-field" placeholder="Enemy Jungler (e.g. fanny)" autocomplete="off">
         <div class="autocomplete-list"></div>
       </div>
-      <div class="autocomplete-wrapper">
-        <input type="text" id="h4" placeholder="Hero 4 (e.g. beatrix)" autocomplete="off">
+      <div class="input-row" data-role="mid">
+        <div class="input-num n4">4</div>
+        <input type="text" id="h4" class="input-field" placeholder="Enemy Mid Lane (e.g. valir)" autocomplete="off">
         <div class="autocomplete-list"></div>
       </div>
-      <div class="autocomplete-wrapper">
-        <input type="text" id="h5" placeholder="Hero 5 (e.g. chou)" autocomplete="off">
+      <div class="input-row" data-role="gold">
+        <div class="input-num n5">5</div>
+        <input type="text" id="h5" class="input-field" placeholder="Enemy Gold Lane (e.g. beatrix)" autocomplete="off">
         <div class="autocomplete-list"></div>
       </div>
     </div>
 
-    <button onclick="analyze()">ANALYZE DRAFT</button>
+    <button class="analyze-btn" onclick="analyze()">⚔️ ANALYZE DRAFT</button>
 
     <div class="results" id="results"></div>
   </div>
@@ -80,7 +85,7 @@
       roles.forEach(([key,label]) => {
         const picks = r.rolePicks[key] || [];
         if (!picks.length) return;
-        h += `<div class="role-section"><div class="role-name">${label}</div>`;
+        h += `<div class="role-section"><div class="role-name" data-role="${key}">${label}</div>`;
         picks.forEach((p,i) => {
           h += `<div class="pick">
             <div class="pick-header"><span class="pick-rank">${i+1}</span><span class="pick-hero">${p.hero}</span></div>
