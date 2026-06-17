@@ -36,3 +36,10 @@ button:active{transform:scale(.98)}
 .item-hint{color:#888;font-size:.85rem;margin-bottom:3px}
 .dmg-info{color:#ffcc00;font-size:.85rem}
 .empty{text-align:center;color:#444;padding:40px 0;font-size:.9rem}
+.autocomplete-wrapper{position:relative}
+.autocomplete-list{display:none;position:absolute;top:100%;left:0;right:0;background:#1a1a2e;border:1px solid #2a2a4a;border-top:none;border-radius:0 0 6px 6px;max-height:260px;overflow-y:auto;z-index:200;scrollbar-width:thin;scrollbar-color:#2a2a4a transparent}
+.autocomplete-list.show{display:block}
+.ac-item{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;cursor:pointer;transition:background .15s}
+.ac-item:hover,.ac-item.active{background:#22224a}
+.ac-name{color:#e0e0f0;font-size:14px}
+.ac-role{color:#fff;font-size:10px;font-weight:700;padding:2px 6px;border-radius:3px;text-transform:uppercase;letter-spacing:.5px}

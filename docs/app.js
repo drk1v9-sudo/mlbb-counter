@@ -158,6 +158,93 @@ Object.assign(ALIASES, {
   "yi sun shin":"yi_sun_shin",
 });
 
+// ─── AUTOCOMPLETE ───────────────────────────────────────────────────────────
+const HERO_DISPLAY = Object.keys(HERO_ROLES).map(k => ({
+  key: k,
+  name: k.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase()),
+  role: HERO_ROLES[k][0].toUpperCase(),
+}));
+
+const ROLE_COLORS = {roam:"#55cc55",exp:"#5588ff",jungle:"#ff5555",mid:"#cccc55",gold:"#ff88cc"};
+
+function filterHeroes(query, excludeSet) {
+  const q = query.toLowerCase().trim();
+  if (!q) return [];
+  return HERO_DISPLAY
+    .filter(h => !excludeSet.has(h.key) && (h.key.includes(q) || h.name.toLowerCase().includes(q)))
+    .slice(0, 8);
+}
+
+let activeAc = null;
+let acIndex = -1;
+
+function showDropdown(inputEl, matches) {
+  hideDropdown();
+  if (!matches.length) return;
+  const wrapper = inputEl.closest('.autocomplete-wrapper');
+  const list = wrapper.querySelector('.autocomplete-list');
+  list.innerHTML = matches.map((m, i) =>
+    `<div class="ac-item" data-key="${m.key}" data-idx="${i}">
+      <span class="ac-name">${m.name}</span>
+      <span class="ac-role" style="background:${ROLE_COLORS[m.role.slice(0,4)]||'#555'}">${m.role}</span>
+    </div>`
+  ).join("");
+  list.classList.add("show");
+  activeAc = { inputEl, list, matches };
+  acIndex = -1;
+
+  list.querySelectorAll(".ac-item").forEach(item => {
+    item.addEventListener("mousedown", e => {
+      e.preventDefault();
+      inputEl.value = item.dataset.key.replace(/_/g," ");
+      hideDropdown();
+      inputEl.focus();
+    });
+  });
+}
+
+function hideDropdown() {
+  document.querySelectorAll(".autocomplete-list.show").forEach(el => el.classList.remove("show"));
+  activeAc = null;
+  acIndex = -1;
+}
+
+function setupAutocomplete(inputEl, inputId) {
+  inputEl.addEventListener("input", () => {
+    const exclude = new Set([1,2,3,4,5].filter(i => "h"+i !== inputId).map(i => {
+      const v = document.getElementById("h"+i).value.trim();
+      return normalize(v);
+    }));
+    const matches = filterHeroes(inputEl.value, exclude);
+    showDropdown(inputEl, matches);
+  });
+
+  inputEl.addEventListener("keydown", e => {
+    if (!activeAc) return;
+    const items = activeAc.list.querySelectorAll(".ac-item");
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      acIndex = Math.min(acIndex + 1, items.length - 1);
+      items.forEach((it, i) => it.classList.toggle("active", i === acIndex));
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      acIndex = Math.max(acIndex - 1, 0);
+      items.forEach((it, i) => it.classList.toggle("active", i === acIndex));
+    } else if (e.key === "Enter" && acIndex >= 0) {
+      e.preventDefault();
+      const chosen = activeAc.matches[acIndex];
+      inputEl.value = chosen.key.replace(/_/g, " ");
+      hideDropdown();
+    } else if (e.key === "Escape") {
+      hideDropdown();
+    }
+  });
+
+  inputEl.addEventListener("blur", () => {
+    setTimeout(hideDropdown, 150);
+  });
+}
+
 function normalize(name) {
   let n = name.trim().toLowerCase().replace(/ /g,"_").replace(/-/g,"_");
   if (ALIASES[n]) return ALIASES[n];

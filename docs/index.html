@@ -13,11 +13,26 @@
     <p class="subtitle">Enter 5 enemy heroes — get counter-picks, items, playstyle & more</p>
 
     <div class="input-group">
-      <input type="text" id="h1" placeholder="Hero 1 (e.g. fanny)" autocomplete="off" autofocus>
-      <input type="text" id="h2" placeholder="Hero 2 (e.g. atlas)" autocomplete="off">
-      <input type="text" id="h3" placeholder="Hero 3 (e.g. estes)" autocomplete="off">
-      <input type="text" id="h4" placeholder="Hero 4 (e.g. beatrix)" autocomplete="off">
-      <input type="text" id="h5" placeholder="Hero 5 (e.g. chou)" autocomplete="off">
+      <div class="autocomplete-wrapper">
+        <input type="text" id="h1" placeholder="Hero 1 (e.g. fanny)" autocomplete="off" autofocus>
+        <div class="autocomplete-list"></div>
+      </div>
+      <div class="autocomplete-wrapper">
+        <input type="text" id="h2" placeholder="Hero 2 (e.g. atlas)" autocomplete="off">
+        <div class="autocomplete-list"></div>
+      </div>
+      <div class="autocomplete-wrapper">
+        <input type="text" id="h3" placeholder="Hero 3 (e.g. estes)" autocomplete="off">
+        <div class="autocomplete-list"></div>
+      </div>
+      <div class="autocomplete-wrapper">
+        <input type="text" id="h4" placeholder="Hero 4 (e.g. beatrix)" autocomplete="off">
+        <div class="autocomplete-list"></div>
+      </div>
+      <div class="autocomplete-wrapper">
+        <input type="text" id="h5" placeholder="Hero 5 (e.g. chou)" autocomplete="off">
+        <div class="autocomplete-list"></div>
+      </div>
     </div>
 
     <button onclick="analyze()">ANALYZE DRAFT</button>
@@ -117,9 +132,10 @@
       document.getElementById('results').innerHTML = h;
     }
 
-    // Enter key analyzes
+    // Enter key analyzes + setup autocomplete
     document.querySelectorAll('input').forEach(el => {
-      el.addEventListener('keydown', e => { if (e.key==='Enter') analyze(); });
+      el.addEventListener('keydown', e => { if (e.key==='Enter' && !activeAc) analyze(); });
+      setupAutocomplete(el, el.id);
     });
   </script>
 </body>
