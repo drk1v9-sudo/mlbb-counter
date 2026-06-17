@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MLBB Draft Counter Picker</title>
-  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="stylesheet" href="style.css?v=6">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚔️</text></svg>">
 </head>
 <body>
@@ -12,10 +12,12 @@
     <h1>⚔️ MLBB Draft Counter Picker</h1>
     <p class="subtitle">Enter 5 enemy heroes — get counter-picks, items, playstyle & more</p>
 
-    <!-- ═══ COUNTER PICKS (with draft input) ═══ -->
-    <div class="section guide-section open" id="counterGuide">
-      <div class="section-title" onclick="toggleSection('counterGuide')">Draft Analyzer <span class="toggle-icon">+</span></div>
-      <div class="guide-body">
+    <!-- ═══ COUNTER PICKS GUIDE (with draft input + archetype counters) ═══ -->
+    <div class="section guide-section" id="counterGuide">
+      <div class="section-title" onclick="toggleSection('counterGuide')">Counter Picks Guide <span class="toggle-icon">+</span></div>
+      <div class="guide-body" style="display:none">
+
+        <div class="guide-subtitle">Enter enemy draft for custom counter analysis</div>
 
         <div class="input-group">
           <div class="input-row" data-role="roam">
@@ -109,7 +111,6 @@
       <div class="section-title" onclick="toggleSection('roleGuide')">Best Heroes by Role <span class="toggle-icon">+</span></div>
       <div class="guide-body" style="display:none">
 
-        <!-- TABS -->
         <div class="guide-tabs">
           <button class="guide-tab active" onclick="switchPartyTab(this,'solo')">Solo Queue</button>
           <button class="guide-tab" onclick="switchPartyTab(this,'trio')">Trio</button>
@@ -127,7 +128,6 @@
               <div class="guide-pick"><b>Mathilda</b> — Mobile support that can carry. Shield + damage + mobility. Good for aggressive plays.</div>
             </div>
           </div>
-
           <div class="guide-card">
             <div class="guide-card-title"><span class="role-dot exp"></span> EXP Lane</div>
             <div class="guide-picks">
@@ -137,7 +137,6 @@
               <div class="guide-pick"><b>Terizla</b> — Easy to play, hard to kill. S2 waveclear + ult CC. Safe blind pick.</div>
             </div>
           </div>
-
           <div class="guide-card">
             <div class="guide-card-title"><span class="role-dot jungle"></span> Jungle</div>
             <div class="guide-picks">
@@ -147,7 +146,6 @@
               <div class="guide-pick"><b>Roger</b> — Fast clears, strong early. Transform mechanic. Safe jungle pick.</div>
             </div>
           </div>
-
           <div class="guide-card">
             <div class="guide-card-title"><span class="role-dot mid"></span> Mid Lane</div>
             <div class="guide-picks">
@@ -157,7 +155,6 @@
               <div class="guide-pick"><b>Valentina</b> — Copy enemy ult. Flexible pick. Strong in mid-game.</div>
             </div>
           </div>
-
           <div class="guide-card">
             <div class="guide-card-title"><span class="role-dot gold"></span> Gold Lane</div>
             <div class="guide-picks">
@@ -180,7 +177,6 @@
               <div class="guide-pick"><b>Kaja</b> — Point-click suppression. Coordinate picks with your duo/trio.</div>
             </div>
           </div>
-
           <div class="guide-card">
             <div class="guide-card-title"><span class="role-dot exp"></span> EXP Lane</div>
             <div class="guide-picks">
@@ -190,7 +186,6 @@
               <div class="guide-pick"><b>Thamuz</b> — Sustain + damage. Can hold lane while duo rotates.</div>
             </div>
           </div>
-
           <div class="guide-card">
             <div class="guide-card-title"><span class="role-dot jungle"></span> Jungle</div>
             <div class="guide-picks">
@@ -200,7 +195,6 @@
               <div class="guide-pick"><b>Suyou</b> — Versatile form switcher. Strong in coordinated fights.</div>
             </div>
           </div>
-
           <div class="guide-card">
             <div class="guide-card-title"><span class="role-dot mid"></span> Mid Lane</div>
             <div class="guide-picks">
@@ -210,7 +204,6 @@
               <div class="guide-pick"><b>Lunox</b> — Chaos form melts tanks. Light form survives dives. Flexible.</div>
             </div>
           </div>
-
           <div class="guide-card">
             <div class="guide-card-title"><span class="role-dot gold"></span> Gold Lane</div>
             <div class="guide-picks">
@@ -233,7 +226,6 @@
               <div class="guide-pick"><b>Estes</b> — Full sustain comp. Your team never dies. Dominant in 5-man.</div>
             </div>
           </div>
-
           <div class="guide-card">
             <div class="guide-card-title"><span class="role-dot exp"></span> EXP Lane</div>
             <div class="guide-picks">
@@ -243,7 +235,6 @@
               <div class="guide-pick"><b>Chou</b> — Kick enemy carry into your team. Coordinate target selection.</div>
             </div>
           </div>
-
           <div class="guide-card">
             <div class="guide-card-title"><span class="role-dot jungle"></span> Jungle</div>
             <div class="guide-picks">
@@ -253,7 +244,6 @@
               <div class="guide-pick"><b>Nolan</b> — Fast objective takes. Dash resets in teamfights. Good for macro.</div>
             </div>
           </div>
-
           <div class="guide-card">
             <div class="guide-card-title"><span class="role-dot mid"></span> Mid Lane</div>
             <div class="guide-picks">
@@ -263,7 +253,6 @@
               <div class="guide-pick"><b>Valentina</b> — Copy enemy ult. Adapt to their comp. Strong in coordinated play.</div>
             </div>
           </div>
-
           <div class="guide-card">
             <div class="guide-card-title"><span class="role-dot gold"></span> Gold Lane</div>
             <div class="guide-picks">
@@ -280,7 +269,7 @@
 
   </div>
 
-  <script src="app.js?v=5"></script>
+  <script src="app.js?v=6"></script>
   <script>
     function analyze() {
       const names = [1,2,3,4,5].map(i => document.getElementById('h'+i).value.trim());
@@ -299,7 +288,6 @@
     function render(r) {
       let h = '';
 
-      // ── Enemy Team ──
       h += `<div class="section">`;
       h += `<div class="section-title">Enemy Team</div>`;
       h += `<div style="color:#aab;font-size:.88rem;margin-bottom:6px">${r.enemy.join(' · ')}</div>`;
@@ -314,7 +302,6 @@
       dmgNotes.forEach(d => h += `<div class="dmg-info">${d}</div>`);
       h += '</div>';
 
-      // ── Recommended Picks ──
       const roles = [['roam','Roam'],['exp','EXP Lane'],['jungle','Jungle'],['mid','Mid Lane'],['gold','Gold Lane']];
       h += '<div class="section"><div class="section-title">Counter Picks</div>';
       roles.forEach(([key,label]) => {
@@ -339,17 +326,14 @@
       });
       h += '</div>';
 
-      // ── Synergies ──
       if (r.synergies.length) {
         h += '<div class="section"><div class="section-title">Team Synergies</div>';
         r.synergies.forEach(s => h += `<div class="synergy">▸ ${s}</div>`);
         h += '</div>';
       }
 
-      // ── Playstyle Guide ──
       const ps = r.playstyle;
       h += '<div class="section"><div class="section-title">Playstyle Guide</div>';
-
       if (ps.early.length) {
         h += `<div class="phase"><div class="phase-label early">Early Game (0–8 min)</div>`;
         ps.early.forEach(t => h += `<div class="tip-row">${t}</div>`);
@@ -365,9 +349,8 @@
         ps.late.forEach(t => h += `<div class="tip-row">${t}</div>`);
         h += '</div>';
       }
-
       if (ps.wincon.length) {
-        h += `<div style="margin-top:10px;margin-bottom:6px;color:#00e5ff;font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.5px">Win Conditions</div>`;
+        h += `<div style="margin-top:10px;margin-bottom:6px;color:#b44aff;font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.5px">Win Conditions</div>`;
         ps.wincon.forEach(t => h += `<div class="wincon">▸ ${t}</div>`);
       }
       if (ps.danger.length) {
@@ -376,7 +359,6 @@
       }
       h += '</div>';
 
-      // ── Specific Counter Tips ──
       if (r.counterTips.length) {
         h += '<div class="section"><div class="section-title">How to Counter Each Hero</div>';
         r.counterTips.forEach(t => {
@@ -389,7 +371,6 @@
         h += '</div>';
       }
 
-      // ── Itemization ──
       if (r.itemsGuide.length) {
         h += '<div class="section"><div class="section-title">Itemization Priority</div>';
         r.itemsGuide.forEach(g => h += `<div class="item-hint">${g}</div>`);
@@ -400,13 +381,11 @@
       document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
     }
 
-    // Enter key analyzes + setup autocomplete
     document.querySelectorAll('input').forEach(el => {
       el.addEventListener('keydown', e => { if (e.key==='Enter' && !activeAc) analyze(); });
       setupAutocomplete(el, el.id);
     });
 
-    // Guide section toggle
     function toggleSection(id) {
       const sec = document.getElementById(id);
       const body = sec.querySelector('.guide-body');
@@ -420,7 +399,6 @@
       }
     }
 
-    // Party tab switching
     function switchPartyTab(btn, panel) {
       document.querySelectorAll('.guide-tab').forEach(t => t.classList.remove('active'));
       btn.classList.add('active');
