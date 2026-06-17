@@ -5,8 +5,8 @@ h1{text-align:center;color:#00e5ff;font-size:1.4rem;margin:8px 0 2px;letter-spac
 .subtitle{text-align:center;color:#556;font-size:.8rem;margin-bottom:20px}
 
 /* ── Input Area ── */
-.input-group{display:flex;flex-direction:column;gap:10px;margin-bottom:14px}
-.input-row{position:relative;display:flex;align-items:center;gap:0}
+.input-group{display:flex;flex-direction:column;gap:10px;margin-bottom:14px;overflow:visible}
+.input-row{position:relative;display:flex;align-items:center;gap:0;overflow:visible}
 .input-num{width:36px;height:48px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0055aa,#0077cc);color:#fff;font-size:.82rem;font-weight:800;border-radius:10px 0 0 10px;flex-shrink:0;letter-spacing:.5px}
 .input-num.n1{background:linear-gradient(135deg,#0055aa,#0077cc)}
 .input-num.n2{background:linear-gradient(135deg,#006644,#008866)}
