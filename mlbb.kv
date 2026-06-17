@@ -1,0 +1,128 @@
+#:import ScrollView kivy.scrollview.ScrollView
+#:import GridLayout kivy.uix.gridlayout.GridLayout
+#:import BoxLayout kivy.uix.boxlayout.BoxLayout
+#:import Label kivy.uix.label.Label
+#:import TextInput kivy.uix.textinput.TextInput
+#:import Button kivy.uix.button.Button
+#:import Popup kivy.uix.popup.Popup
+
+<MLBBApp>:
+    orientation: "vertical"
+    padding: 12
+    spacing: 8
+
+    canvas.before:
+        Color:
+            rgba: 0.06, 0.06, 0.12, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    Label:
+        text: "MLBB DRAFT COUNTER PICKER"
+        font_size: 20
+        bold: True
+        color: 0, 0.9, 1, 1
+        size_hint_y: None
+        height: 40
+
+    Label:
+        text: "Enter 5 enemy heroes"
+        font_size: 14
+        color: 0.6, 0.6, 0.7, 1
+        size_hint_y: None
+        height: 24
+
+    GridLayout:
+        cols: 1
+        spacing: 6
+        size_hint_y: None
+        height: 220
+
+        TextInput:
+            id: hero1
+            hint_text: "Hero 1 (e.g. fanny)"
+            font_size: 16
+            multiline: False
+            size_hint_y: None
+            height: 38
+            background_color: 0.12, 0.12, 0.2, 1
+            foreground_color: 1, 1, 1, 1
+            hint_text_color: 0.4, 0.4, 0.5, 1
+
+        TextInput:
+            id: hero2
+            hint_text: "Hero 2 (e.g. atlas)"
+            font_size: 16
+            multiline: False
+            size_hint_y: None
+            height: 38
+            background_color: 0.12, 0.12, 0.2, 1
+            foreground_color: 1, 1, 1, 1
+            hint_text_color: 0.4, 0.4, 0.5, 1
+
+        TextInput:
+            id: hero3
+            hint_text: "Hero 3 (e.g. estes)"
+            font_size: 16
+            multiline: False
+            size_hint_y: None
+            height: 38
+            background_color: 0.12, 0.12, 0.2, 1
+            foreground_color: 1, 1, 1, 1
+            hint_text_color: 0.4, 0.4, 0.5, 1
+
+        TextInput:
+            id: hero4
+            hint_text: "Hero 4 (e.g. beatrix)"
+            font_size: 16
+            multiline: False
+            size_hint_y: None
+            height: 38
+            background_color: 0.12, 0.12, 0.2, 1
+            foreground_color: 1, 1, 1, 1
+            hint_text_color: 0.4, 0.4, 0.5, 1
+
+        TextInput:
+            id: hero5
+            hint_text: "Hero 5 (e.g. chou)"
+            font_size: 16
+            multiline: False
+            size_hint_y: None
+            height: 38
+            background_color: 0.12, 0.12, 0.2, 1
+            foreground_color: 1, 1, 1, 1
+            hint_text_color: 0.4, 0.4, 0.5, 1
+
+    Button:
+        text: "ANALYZE DRAFT"
+        font_size: 18
+        bold: True
+        size_hint_y: None
+        height: 50
+        background_color: 0, 0.55, 0.85, 1
+        color: 1, 1, 1, 1
+        on_press: root.analyze()
+
+    ScrollView:
+        do_scroll_x: False
+        bar_color: 0.3, 0.3, 0.5, 1
+
+        BoxLayout:
+            id: results_box
+            orientation: "vertical"
+            size_hint_y: None
+            height: self.minimum_height
+            spacing: 4
+            padding: [0, 4, 0, 8]
+
+            Label:
+                id: result_label
+                text: "Results will appear here..."
+                font_size: 14
+                color: 0.7, 0.7, 0.8, 1
+                size_hint_y: None
+                height: max(self.texture_size[1], 40)
+                text_size: self.width, None
+                halign: "left"
+                valign: "top"
